@@ -1,0 +1,24 @@
+INTERACTION BEHAVIOUR AND VERIFICATION
+
+The site enhances static HTML. The content remains readable without Motion or JavaScript. There is no custom scrolling, cursor replacement, analytics, persistent demo state, AI request or real device control.
+
+Navigation and utilities
+The mobile menu is a disclosure: aria-expanded follows its visible state; Escape closes it and returns focus to the toggle. Link selection, outside clicks and returning to the desktop layout close it. Email copying uses the Clipboard API, then a selection-based fallback. Failure displays the address without claiming success. Reading progress follows native scrolling and recalculates after layout changes and pageshow.
+
+Motion
+Entrance animations use the local Motion global once available, including a delayed script load. Content is not initially hidden. Reduced-motion preferences bypass motion and stop active entrance animations. The authored signal diagram interpolates its 14 SVG coordinates from data-noise to data-order over 900 ms; replay restarts that local illustration. Reduced motion shows the completed diagram immediately.
+
+Educational demos
+The bank example separates the editable draft from the last valid rule. Only integer bonuses 1–10 and the two defined audience options can be applied. Rejected edits preserve both the prior audience and bonus. Invalid fields are identified and focused; the result message explains why the rule was rejected.
+The CODY illustration has four local steps and an explicit fictional offline state. Losing the illustrated connection disables step changes and never presents a successful execution. Reconnection returns to the preserved step. Arrow keys and Home/End work inside the step group; page scrolling is unaffected elsewhere.
+The process example loads only on its case page. A user-selected role is attributed to clarification U1, while source actions remain attributed to S1. Unknown roles block diagram construction. Changing the role invalidates the prior diagram. The illustration does not produce BPMN XML.
+
+Back navigation
+On pagehide with persisted=true, the browser retains the document and listeners in BFCache. They are intentionally neither destroyed nor registered again. Normal page exit disposes observers, animation frames and listeners. The pagehide handler remains registered across a BFCache round trip; progress updates on pageshow. Rebinding on a cached page would duplicate handlers.
+
+Checks completed
+Node syntax/import checks passed for both modules. A DOM-free logic check covered invalid bonus values, an invalid audience, accepted limits 1 and 10, a valid apply followed by rejection and recovery, preservation of the complete last valid rule, and non-mutation of prior rules. The pagehide handler was checked for retention across a cached navigation event.
+Visual appearance, actual clipboard permissions, browser history restoration and the integrated page flows require browser verification. The site owner is performing those checks separately.
+
+Integration
+app.js reads body[data-locale]. Bank states are initial/dirty/invalid/applied, with an error badge for rejected drafts. CODY exposes data-step and data-connection; the instrument exposes assembling/ordered. process-demo.js exports mountProcessDemo(container, {locale}) and returns destroy() and setLocale().

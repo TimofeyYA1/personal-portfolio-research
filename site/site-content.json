@@ -1,0 +1,368 @@
+{
+  "ru": {
+    "cases": {
+      "tbank": {
+        "title": "Эксперимент начинается с правила.",
+        "kicker": "Т-Банк / конфигурации и данные",
+        "summary": "Работал над системой, в которой аналитик описывает аудиторию, условия и действия над кешбэком через конфигурацию. Код отвечает за проверку и исполнение этих правил.",
+        "role": "Backend, data pipelines и работа с аналитиками",
+        "status": "Командная промышленная разработка",
+        "period": "",
+        "stack": [
+          "Python",
+          "Airflow",
+          "Kafka",
+          "SQL",
+          "PostgreSQL",
+          "Kotlin"
+        ],
+        "sections": [
+          {
+            "title": "Когда изменение требует разработчика",
+            "body": "Параметры экспериментов были тесно связаны с реализацией пайплайна. Чтобы изменить распределение аудитории или правило назначения кешбэка, аналитику приходилось обращаться к разработчику. Новые сценарии добавляли условия и ветвления, а поведение нескольких правил становилось труднее объяснить. Задача состояла в том, чтобы передать аналитикам часть изменений и сохранить проверяемую семантику: какие параметры допустимы, как они сочетаются и что происходит при ошибке. Это одновременно вопрос архитектуры и рабочего процесса команды."
+          },
+          {
+            "title": "Намерение становится конфигурацией",
+            "body": "Я работал над декларативной моделью, которая собирает описание эксперимента в одном месте: целевая аудитория, условия участия и действия над кешбэком. Вместе с аналитиками разбирал сценарии запуска и ограничения прежнего подхода. Эти разговоры влияли на модель и документацию. Конфигурация должна быть понятна человеку, который определяет эксперимент: не только какие поля заполнить, но и какой результат даст их сочетание. Для этого нужны примеры, ясные ошибки и предсказуемое исполнение."
+          },
+          {
+            "title": "Несколько правил для одного клиента",
+            "body": "Отдельной задачей была поддержка независимых экспериментов, которые могут затрагивать одного клиента. Здесь недостаточно единственного признака участия: нужно разделять принадлежность к экспериментам и порядок применения изменений. Я участвовал в развитии этой логики и переносе общего подхода между продуктовыми направлениями. Проверки конфигурации и результатов выполнения помогают удерживать эту сложность внутри системы. Общая модель использована в трёх направлениях, при этом новые типы поведения по-прежнему требуют инженерной работы."
+          },
+          {
+            "title": "Результат должен быть объясним",
+            "body": "Я работал над данными о применённых экспериментах и промежуточных результатах обработки. Они помогают восстановить, какие правила повлияли на итоговое назначение кешбэка. В связанной части платформы занимался поставкой данных через Kafka, контрактами, хранением позиции выгрузки в PostgreSQL и метриками отставания. Для такой системы важно не только получить результат, но и понимать состояние обработки: где она остановилась, какие изменения уже применены и какие данные нужны для разбора вопроса."
+          },
+          {
+            "title": "Что изменилось",
+            "body": "Часть экспериментов и изменений правил можно готовить конфигурацией без изменения прикладной логики в коде. Аналитик получает больше самостоятельности внутри определённых границ, а разработчик отвечает за смысл этих границ и их проверку. Это не универсальный конструктор: новый тип действия требует расширения модели, тестов и документации. Кейс показывает этот инженерный механизм; количественное ускорение или бизнес-эффект здесь не заявлены. Визуальный пример на странице использует вымышленные данные и самостоятельно придуманные правила."
+          }
+        ],
+        "takeaway": "Хорошая конфигурация передаёт человеку свободу менять нужное и делает последствия изменения понятными."
+      },
+      "cody": {
+        "title": "Работа на Mac продолжается с телефона.",
+        "kicker": "CODY / личный инструмент",
+        "summary": "Мой прототип AI-компаньона для iPhone связывает голосовой и мобильный интерфейс с кодинговыми и терминальными сессиями на Mac. В центре — точный контекст задачи и понятная обратная связь.",
+        "role": "Идея, архитектура, мобильный интерфейс и Mac Bridge",
+        "status": "Личный рабочий прототип",
+        "period": "",
+        "stack": [
+          "React Native",
+          "Expo",
+          "TypeScript",
+          "Node.js",
+          "WebSocket",
+          "Zod",
+          "Skia",
+          "tmux"
+        ],
+        "sections": [
+          {
+            "title": "Сначала понять, какую задачу продолжать",
+            "body": "Когда открыто несколько проектов и разговоров, фраза «пусть продолжит» неоднозначна. Управление с телефона требует не просто переслать команду на компьютер, а понять её адресата. В CODY я работаю над общим контекстом проекта и сессии для голосового и ручного режимов. Пользователь может выразить короткое намерение или выбрать разговор явно. Если подходящих вариантов несколько, интерфейс предлагает выбор вместо уверенного действия по догадке."
+          },
+          {
+            "title": "Телефон управляет, Mac хранит состояние",
+            "body": "Мобильное приложение связано с локальным Mac Bridge через типизированный WebSocket-протокол. Bridge проверяет сообщения, хранит сведения о проектах и сессиях и вызывает нужный адаптер. Терминальная работа продолжается в tmux независимо от видимого окна. Кодинговые разговоры доступны через интеграционный слой провайдера сессий. Такая граница позволяет мобильному интерфейсу оставаться компактным: он показывает состояние и доступные действия, а не пытается воспроизвести на маленьком экране весь рабочий стол."
+          },
+          {
+            "title": "От выбора к конкретному действию",
+            "body": "В моей части системы общий TypeScript/Zod-протокол связывает мобильный клиент и Bridge. Соединение аутентифицируется, сообщения проверяются во время выполнения. Варианты действий получают короткоживущие идентификаторы, привязанные к соединению; Bridge разрешает их в конкретную операцию. Это отделяет подпись кнопки от самой команды. История, точный выбор разговора и результаты доступны в более подробном режиме рабочего пространства, когда короткой голосовой реплики недостаточно для уверенного следующего шага."
+          },
+          {
+            "title": "Характер помогает читать состояние",
+            "body": "У CODY есть лицо и состояния: он слушает, думает, работает или сообщает об ошибке. Я связываю выразительность персонажа с практической задачей интерфейса — дать понять, что сейчас происходит. Короткий ответ нужен для быстрого взаимодействия; подробная история — для проверки. Эти два уровня используют один контекст. Анимация здесь может сделать состояние заметнее, но не должна подменять результат: потеря соединения и ошибка действия так же важны, как успешное завершение."
+          },
+          {
+            "title": "Границы прототипа",
+            "body": "Реализованы мобильный клиент, Bridge, общий протокол, управление контекстом и адаптеры сессий. В проекте есть проверки сообщений, состояний, намерений и поведения Bridge. Голосовой режим предполагает открытое активное приложение; постоянное прослушивание в фоне не обещается. Это личный прототип с локальной настройкой, а не готовый массовый сервис. Я не заявляю пользовательскую базу или измеренную экономию времени. Интерактивная последовательность на странице — иллюстрация сценария с вымышленной задачей, а не запуск команд на устройстве посетителя."
+          }
+        ],
+        "takeaway": "Разговорный интерфейс становится полезным, когда за короткой репликой стоит точное состояние и проверяемое действие."
+      },
+      "bpmn": {
+        "title": "Хорошая схема начинается с правильного вопроса.",
+        "kicker": "BPMN.space / командный проект",
+        "summary": "Командный хакатонный прототип помогает аналитикам превратить документы и заметки в редактируемый процесс. Вопросы, допущения и источники остаются рядом со схемой.",
+        "role": "Участник команды разработки",
+        "status": "Командный прототип",
+        "period": "",
+        "stack": [
+          "Python",
+          "FastAPI",
+          "Pydantic",
+          "PostgreSQL",
+          "React",
+          "TypeScript",
+          "bpmn-js"
+        ],
+        "sections": [
+          {
+            "title": "В документе есть не всё",
+            "body": "Регламент может подробно описывать действия и при этом не назвать ответственного за согласование. Встречаются неоднозначные условия, пропущенные переходы и противоречия между материалами. Если сразу превратить такой текст в аккуратную диаграмму, пробелы будут выглядеть как установленные факты. Мы строили BPMN.space вокруг другого процесса: собрать источники, увидеть неясности, уточнить их с аналитиком и только затем обсуждать полученную модель. Убедительная картинка сама по себе не решает задачу анализа."
+          },
+          {
+            "title": "Вопрос — часть рабочего пространства",
+            "body": "Вместе с товарищем я участвовал в создании проекта, где документы, вопросы и версии схемы связаны между собой. Ответ аналитика становится новым источником, который можно сопоставить с вопросом. Наличие ответа ещё не означает, что проблема решена: важно, относится ли основание к нужному условию и достаточно ли сведений. Возможности, описанные в этом кейсе, — результат команды. Это особенно важно для истории, в которой архитектура, интерфейс и работа с моделью тесно связаны."
+          },
+          {
+            "title": "Модель предлагает структуру, код строит XML",
+            "body": "Генерация разделена на несколько этапов. Модель предлагает типизированный граф в JSON. Затем программный код проверяет связи и поддерживаемые конструкции, формирует BPMN XML и передаёт результат на раскладку и техническую проверку. Такое промежуточное представление ограничивает пространство возможных ошибок и позволяет возвращать адресные замечания. За проверяемость приходится платить границами: генератор работает с определённым подмножеством BPMN, а не со всеми возможностями стандарта. Палитра редактора может поддерживать больше, чем автоматическое построение."
+          },
+          {
+            "title": "Ручная правка не должна исчезать",
+            "body": "Аналитик может редактировать схему и возвращаться к предыдущим версиям. Следующее построение должно учитывать уже сделанные изменения, а конфликт с новым источником — становиться видимым вопросом. В проекте предусмотрен приоритет ручных правок и отдельное перестроение из источников. Это важная граница ответственности: система предлагает и проверяет, человек уточняет смысл процесса. Формально корректный XML остаётся лишь одним уровнем проверки; правильность бизнес-описания требует отдельного внимания к источникам и решениям аналитика."
+          },
+          {
+            "title": "Что показывает прототип",
+            "body": "Реализованы модель графа и детерминированная сборка XML; рабочий процесс объединяет материалы, вопросы и редактирование схемы. Прототип даёт основу для обсуждения процесса, но не доказывает точность на любых регламентах или экономию рабочего времени. Мы не заявляем внедрение у организатора хакатона. Пример на этой странице — вымышленная закупка: неизвестный согласующий превращается в вопрос, ответ получает основание, а схема обновляется. Это иллюстрация принципа, а не подключение к живому сервису."
+          }
+        ],
+        "takeaway": "Полезный AI-инструмент помогает увидеть, чего мы ещё не знаем, прежде чем превращать это в решение."
+      }
+    },
+    "audiences": {
+      "engineering": {
+        "title": "Backend, который помогает менять продукт.",
+        "lead": "Я работаю с Python, данными и интеграциями. Мне интересны задачи, где нужно разобраться в предметной области, выделить устойчивые правила и сделать поведение системы понятным. Здесь можно посмотреть, как я подхожу к такой работе: от разговора с пользователем до проверок и наблюдаемости.",
+        "proofs": [
+          {
+            "title": "Опыт внутри команды",
+            "body": "Начните с Т-Банка. В этом кейсе я работал над конфигурациями экспериментов, пайплайнами и инструментами для аналитиков. Он показывает границу между изменяемыми правилами и кодом, а также то, почему итог обработки нужно уметь объяснить. Командный результат и мой вклад описаны отдельно."
+          },
+          {
+            "title": "Самостоятельная система",
+            "body": "CODY связывает мобильный интерфейс, локальный Bridge и реальные сессии на Mac. Для меня это способ работать с архитектурой целиком: контекст, протокол, состояния, ошибки и пользовательский сценарий. Прототип помогает увидеть инженерные решения за пределами одного сервиса."
+          },
+          {
+            "title": "Следующий шаг",
+            "body": "Основной опыт — Python, SQL, PostgreSQL, Airflow и Kafka; в проектах использую FastAPI, Django/DRF, TypeScript и React Native. Ищу команду, где смогу углублять backend-навыки и обсуждать решения с сильными инженерами. В резюме — краткая версия опыта; в кейсах — материал для предметного технического разговора."
+          }
+        ],
+        "cta": "Открыть резюме"
+      },
+      "learning": {
+        "title": "Учусь понимать системы глубже.",
+        "lead": "Я учусь на первом курсе Центрального университета в Москве: программирование, математика и бизнес-дисциплины идут рядом с практической разработкой. Меня интересует, как формальная модель помогает разобраться в человеческой задаче — и где реальность заставляет эту модель пересмотреть.",
+        "proofs": [
+          {
+            "title": "Вопросы из практики",
+            "body": "В Т-Банке такой моделью стали правила экспериментов. В BPMN.space команда разбирала переход от неполного текста к структуре процесса. В CODY я исследую состояние и контекст между устройствами. Эти задачи дают мне конкретные вопросы, с которыми полезно возвращаться к теории."
+          },
+          {
+            "title": "Как я учусь",
+            "body": "Мне помогает небольшой работающий пример: выбрать сценарий, собрать первую реализацию, увидеть ошибку и уточнить предположение. В совместной работе важно объяснить решение, показать промежуточный результат и уважать вклад других участников. Поэтому в портфолио есть и личный прототип, и командные истории."
+          },
+          {
+            "title": "Что хочу исследовать дальше",
+            "body": "Хочу глубже изучать алгоритмы, распределённые системы и оценку AI-компонентов: как проверять не только корректность формата, но и смысл результата. Мне интересна среда, где теория встречается с проектами и обсуждением. Эти работы дополняют историю моего обучения; формальные сведения об образовании и достижениях рассматриваются отдельно."
+          }
+        ],
+        "cta": "Посмотреть проекты"
+      },
+      "collaborate": {
+        "title": "Найдём задачу, которую стоит сделать вместе.",
+        "lead": "Мне интересны инструменты для разработчиков, работа с данными и процессы, в которых люди постоянно переносят информацию между системами. Хорошая точка старта — конкретная повторяющаяся ситуация: что человек пытается сделать, где теряет время и каким должен быть результат.",
+        "proofs": [
+          {
+            "title": "Что я могу привнести",
+            "body": "Backend, API, обработку данных и интеграции, а при необходимости — связь с веб- или мобильным интерфейсом. В CODY видно, как я собираю взаимодействие нескольких частей системы. В BPMN.space — командную работу над инструментом, который помогает уточнять задачу, а не только генерировать ответ."
+          },
+          {
+            "title": "Если мы делаем продукт вместе",
+            "body": "Предлагаю начать с одного сценария, распределить ответственность и быстро показать работающий вариант. Мне важно, чтобы было понятно, кто принимает решения и как мы проверяем результат. Можно прийти с исследовательским вопросом, незавершённым прототипом или предметной задачей, в которой нужен инженерный партнёр."
+          },
+          {
+            "title": "Если нужен оплачиваемый пилот",
+            "body": "Берём один ограниченный процесс, разбираем входные данные и исключения, согласуем примеры хорошего результата и собираем пилот. Сроки и объём определяем после разбора задачи. Для первого письма достаточно трёх вещей: что происходит сейчас, что хочется изменить и какой пример результата вы готовы обсудить."
+          }
+        ],
+        "cta": "Написать о задаче"
+      }
+    }
+  },
+  "en": {
+    "cases": {
+      "tbank": {
+        "title": "An experiment starts with a rule.",
+        "kicker": "T-Bank / configuration and data",
+        "summary": "I worked on a system that lets analysts describe audiences, conditions and cashback actions through configuration. Code handles the validation and execution of those rules.",
+        "role": "Backend, data pipelines and work with analysts",
+        "status": "Team-based production engineering",
+        "period": "",
+        "stack": [
+          "Python",
+          "Airflow",
+          "Kafka",
+          "SQL",
+          "PostgreSQL",
+          "Kotlin"
+        ],
+        "sections": [
+          {
+            "title": "When a change needs an engineer",
+            "body": "Experiment settings were closely tied to pipeline implementation. Changing audience allocation or a cashback rule could require an analyst to request a code change. New scenarios added conditions and branches, while the interaction between rules became harder to explain. The challenge was to let analysts make some changes independently without losing control over their meaning: which parameters are valid, how they combine, and what happens when something is wrong."
+          },
+          {
+            "title": "Turning intent into configuration",
+            "body": "I worked on a declarative model that brings the experiment description together: its audience, participation conditions and actions affecting cashback. I discussed launch scenarios and limitations with analysts, using those conversations to develop both the model and its documentation. Configuration has to make sense to the person defining the experiment. They need to understand the outcome of combining parameters, supported by examples, useful error messages and predictable execution."
+          },
+          {
+            "title": "Several rules, one customer",
+            "body": "A separate challenge was supporting independent experiments that can affect the same customer. A single participation flag is not enough: membership and the order of applying changes need distinct representations. I contributed to this logic and to extending a shared approach across product areas. Configuration and runtime checks help contain that complexity. The shared model was used across three areas, while genuinely new types of behaviour still require engineering work."
+          },
+          {
+            "title": "Making the result explainable",
+            "body": "I worked on information about applied experiments and intermediate processing results. It helps reconstruct which rules affected a final cashback assignment. Related platform work included Kafka-based delivery, data contracts, PostgreSQL-backed shipping cursors and lag metrics. Getting a result is only part of the job. A useful system also makes processing state understandable: where work stopped, which changes have already been applied, and what information is available to investigate a question."
+          },
+          {
+            "title": "What changed",
+            "body": "Some experiments and rule changes can be prepared as configuration without modifying application logic. Analysts gain independence within defined boundaries; engineers remain responsible for the meaning and validation of those boundaries. This is not a universal builder: a new action requires changes to the model, tests and documentation. The case explains that mechanism without claiming a measured speedup or business impact. The visual example on this page uses fictional data and independently authored rules."
+          }
+        ],
+        "takeaway": "Good configuration gives people control over the changes they need to make—and makes the consequences understandable."
+      },
+      "cody": {
+        "title": "Continue work on a Mac from your phone.",
+        "kicker": "CODY / personal tool",
+        "summary": "My iPhone companion prototype connects a voice and mobile interface to coding and terminal sessions on a Mac. It centres on precise task context and understandable feedback.",
+        "role": "Product concept, architecture, mobile interface and Mac Bridge",
+        "status": "Personal working prototype",
+        "period": "",
+        "stack": [
+          "React Native",
+          "Expo",
+          "TypeScript",
+          "Node.js",
+          "WebSocket",
+          "Zod",
+          "Skia",
+          "tmux"
+        ],
+        "sections": [
+          {
+            "title": "First, know what to continue",
+            "body": "With several projects and conversations open, “let it continue” is ambiguous. Control from a phone requires more than forwarding a command to a computer: the system needs to know its target. In CODY, I work on shared project and session context for voice and manual interaction. A user can express a short intention or select a conversation explicitly. When several targets are plausible, the interface offers a choice instead of acting on a guess."
+          },
+          {
+            "title": "The phone controls; the Mac holds state",
+            "body": "The mobile app connects to a local Mac Bridge through a typed WebSocket protocol. The Bridge validates messages, maintains project and session information, and calls the relevant adapter. Terminal work persists in tmux independently of its visible window. Coding conversations use a session-provider integration layer. This boundary lets the phone stay compact: it presents state and available actions instead of trying to reproduce an entire desktop on a smaller screen."
+          },
+          {
+            "title": "A choice becomes a specific action",
+            "body": "My implementation connects the mobile client and Bridge through a shared TypeScript/Zod protocol. Connections are authenticated and messages are checked at runtime. Available choices receive short-lived identifiers associated with the connection; the Bridge resolves them into specific operations. This separates the text on a button from the command itself. A more detailed workspace view provides conversation history and exact selection when a short voice exchange is not enough to choose the next step confidently."
+          },
+          {
+            "title": "A character that communicates state",
+            "body": "CODY has a face and expressions for listening, thinking, working and encountering a problem. I connect that character to a practical interface task: helping the user understand what is happening. A short response supports quick interaction; a full history supports inspection. Both use the same context. Animation can make a state easier to notice, but it must not stand in for a result. A lost connection matters just as much as a successful completion."
+          },
+          {
+            "title": "The prototype’s boundaries",
+            "body": "The mobile client, Bridge, shared protocol, context management and session adapters are implemented, with tests for messages, state, intent and Bridge behaviour. Voice interaction requires the app to be open and active; continuous background listening is not promised. This is a personal prototype with local setup, without a verified user-base or productivity claim. The sequence on this page illustrates a fictional task; it does not execute commands on the visitor’s device."
+          }
+        ],
+        "takeaway": "Conversational control becomes useful when a short phrase is backed by precise state and an action that can be checked."
+      },
+      "bpmn": {
+        "title": "A useful diagram starts with the right question.",
+        "kicker": "BPMN.space / team project",
+        "summary": "This team-built hackathon prototype helps analysts turn documents and notes into an editable process map, keeping questions, assumptions and sources visible beside it.",
+        "role": "Member of the development team",
+        "status": "Team prototype",
+        "period": "",
+        "stack": [
+          "Python",
+          "FastAPI",
+          "Pydantic",
+          "PostgreSQL",
+          "React",
+          "TypeScript",
+          "bpmn-js"
+        ],
+        "sections": [
+          {
+            "title": "The document does not say everything",
+            "body": "A procedure may describe activities in detail yet omit who approves a request. Conditions can be ambiguous, transitions missing and documents contradictory. Turning that text straight into a polished diagram can make gaps look like established facts. We built BPMN.space around a different workflow: collect sources, expose uncertainty, clarify it with an analyst, then discuss the resulting model. A convincing picture alone does not solve the analysis problem."
+          },
+          {
+            "title": "Questions belong in the workspace",
+            "body": "With a teammate, I contributed to a project that connects documents, questions and diagram versions. An analyst’s answer becomes a new source that can be related to the question. Receiving an answer is not the same as resolving uncertainty: its evidence must address the relevant condition and provide enough information. The capabilities described in this case are team outcomes, combining architecture, interface work and interaction with a generative model."
+          },
+          {
+            "title": "The model proposes; code constructs",
+            "body": "Generation is split into stages. A model proposes a typed graph in JSON. Code checks its connections and supported constructs, compiles BPMN XML and passes the result to layout and technical checks. The intermediate representation narrows the possible errors and supports specific feedback. The trade-off is an explicit boundary: generation supports a defined BPMN subset rather than every feature of the standard. The editor’s palette may support more than automatic generation."
+          },
+          {
+            "title": "Manual work should survive another run",
+            "body": "An analyst can edit the diagram and revisit earlier versions. Subsequent generation needs to respect that work, while a conflict with a new source should become a visible question. The project provides priority for manual changes and a separate rebuild-from-sources operation. This creates a clear division of responsibility: the system proposes and checks, while the person refines meaning. Valid XML is one level of correctness; an accurate business process still depends on evidence and judgement."
+          },
+          {
+            "title": "What the prototype demonstrates",
+            "body": "The graph model and deterministic XML compilation are implemented, within a workflow connecting source material, questions and diagram editing. The prototype provides a basis for discussion, without proving accuracy on arbitrary procedures or measured time savings. Participation in the hackathon does not imply adoption by its organiser. The fictional purchasing example on this page turns a missing approver into a question, connects an answer to evidence, and updates the diagram. It illustrates the principle rather than connecting to the live service."
+          }
+        ],
+        "takeaway": "A useful AI tool helps reveal what we do not know before turning it into a decision."
+      }
+    },
+    "audiences": {
+      "engineering": {
+        "title": "Backend systems that help products change.",
+        "lead": "I work with Python, data and integrations. I am drawn to problems that require understanding a domain, finding stable rules and making system behaviour understandable. These projects show how I approach that work, from conversations with users to validation and observability.",
+        "proofs": [
+          {
+            "title": "Working inside a team",
+            "body": "Start with T-Bank. I worked on experiment configuration, pipelines and tools for analysts. The case explains the boundary between changing rules and application code, and why a processing result needs an explanation. My contribution and the wider team outcome are described separately."
+          },
+          {
+            "title": "Building across system boundaries",
+            "body": "CODY connects a mobile interface, a local Bridge and actual sessions on a Mac. It lets me work across the architecture: context, protocol, state, failure and the user’s next step. The prototype shows decisions that extend beyond the implementation of one service."
+          },
+          {
+            "title": "A useful next conversation",
+            "body": "My core experience includes Python, SQL, PostgreSQL, Airflow and Kafka; projects also use FastAPI, Django/DRF, TypeScript and React Native. I am looking for a team where I can deepen my backend skills and discuss decisions with strong engineers. The CV gives the short account; the case studies provide concrete material for a technical conversation."
+          }
+        ],
+        "cta": "Read my CV"
+      },
+      "learning": {
+        "title": "Learning to understand systems more deeply.",
+        "lead": "I am a first-year undergraduate at Central University in Moscow, studying programming, mathematics and business subjects alongside practical software development. I am interested in how a formal model helps explain a human problem—and where reality forces that model to change.",
+        "proofs": [
+          {
+            "title": "Questions that come from building",
+            "body": "At T-Bank, the model was a set of experiment rules. In BPMN.space, our team worked on the transition from incomplete text to a process structure. In CODY, I explore state and context across devices. Each project gives me specific questions to take back to theory."
+          },
+          {
+            "title": "How I learn through projects",
+            "body": "A small working example helps me choose a scenario, build an initial implementation, observe a failure and revise an assumption. In a team, I value explaining decisions, sharing intermediate results and acknowledging other people’s contributions. This portfolio therefore includes both personal work and shared outcomes."
+          },
+          {
+            "title": "What I want to explore next",
+            "body": "I want to deepen my understanding of algorithms, distributed systems and AI evaluation: checking not only whether an output has the right format, but whether it makes sense. I am interested in environments that connect theory with projects and discussion. These projects add context to my education; formal academic records and achievements remain separate evidence."
+          }
+        ],
+        "cta": "Explore the projects"
+      },
+      "collaborate": {
+        "title": "Find a problem worth working on together.",
+        "lead": "I am interested in developer tools, data workflows and processes that make people repeatedly move information between systems. A useful starting point is a concrete situation: what someone is trying to do, where they get stuck and what a good result should look like.",
+        "proofs": [
+          {
+            "title": "What I can contribute",
+            "body": "Backend systems, APIs, data processing and integrations, connected to a web or mobile interface when the task needs one. CODY shows how I bring several parts of a system together. BPMN.space shows a team-built tool that helps clarify a problem rather than simply generate an answer."
+          },
+          {
+            "title": "If we are building together",
+            "body": "I suggest starting with one scenario, agreeing on responsibilities and producing a working version early. Clear decisions and a way to check the outcome matter to me. A research question, an unfinished prototype or a well-defined problem can all be a reason to begin a conversation."
+          },
+          {
+            "title": "If you need a paid pilot",
+            "body": "We can scope one workflow, examine inputs and exceptions, agree on examples of success and build a limited pilot. Timing and scope follow that initial review. A first message only needs three things: what happens today, what you want to change and an example of the result you would like to discuss."
+          }
+        ],
+        "cta": "Tell me about the problem"
+      }
+    }
+  }
+}

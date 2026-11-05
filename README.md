@@ -1,10 +1,26 @@
 # Timofei Iakovlev — portfolio research
 
-**Исследование личного сайта, карьерная упаковка RU/EN и три проверяемые визуальные концепции.**
+**Работающий личный сайт RU/EN, интерактивные кейсы, три аудитории и исследование решений.**
 
 Сайт должен помогать человеку принять следующее решение: пригласить на инженерный разговор, обсудить учебную мотивацию или начать совместный проект. Этот репозиторий сохраняет аргументы, источники, тексты и пробы — не только готовую картинку.
 
-**English:** an evidence-led portfolio study for engineering work, university applications and collaboration. Career copy and case studies are available in Russian and English. Research is primarily in Russian. This is a review-stage content and design package, not a deployed website or a claim that all biographical details have been verified.
+**English:** an evidence-led portfolio study for engineering work, university applications and collaboration. Career copy and case studies are available in Russian and English. Research is primarily in Russian. The repository now includes the complete static site, three interactive case illustrations and three audience routes. The hosted site is owner-private; this source/research repository is public. Biographical caveats remain documented.
+
+## Посмотреть сайт
+
+**[Открыть размещённый сайт](https://timofei-iakovlev-work.bracedcliff.chatgpt.site)** — доступ владельцу через его аккаунт ChatGPT. Это рабочая версия с отдельными страницами, анимацией и локальными интерактивными моделями. Публичный доступ к размещённому сайту пока не включён.
+
+![Размещённый сайт](previews/site-desktop.png)
+
+В репозитории находится весь [исходный сайт](site/README.md). Его можно запустить самостоятельно:
+
+```sh
+python3 -m http.server 8000 --directory site/dist
+```
+
+Открыть `http://localhost:8000/ru/` или `/en/`. Затем доступны `engineering/`, `learning/`, `collaborate/` и `work/tbank/`, `work/cody/`, `work/bpmn/`. Для обновления текстов: `python3 site/build.py`.
+
+Внутри: правила экспериментов с проверкой ошибки, иллюстрация контекста CODY, построение процесса после уточнения, CV RU/EN, нативная прокрутка и поддержка reduced motion. [Проверки и ограничения](site/VALIDATION.md), [open-source компоненты и лицензии](site/CREDITS.md), [исследование анимации](research/site-motion-research.md).
 
 ## Начать здесь
 
@@ -20,14 +36,15 @@
 
 ![Маршруты трёх аудиторий](research/audience-map.svg)
 
-**Рекомендуемый визуальный каркас — A / Инженерный атлас.** В кейсах — одна демонстрация из B. В учебной истории — открытые вопросы и личный голос из C. Не нужно три сайта и не нужно складывать все эффекты на главную.
+**В реализованном сайте принят каркас A / Инженерный атлас.** В кейсах — одна демонстрация из B. В учебной истории — открытые вопросы и личный голос из C. Не нужно три сайта и не нужно складывать все эффекты на главную.
 
-![Первый экран атласа](previews/a-atlas-desktop.png)
+Первоначальные пробы сохранены для сравнения с итоговым сайтом.
 
 ## Что есть в репозитории
 
 | Каталог | Содержание |
 |---|---|
+| `site/` | Полный сайт: 15 HTML-страниц, три демо, тексты, шрифты, лицензии и инструкция |
 | `research/` | Аудитории, источники, документированные исходы, реестр утверждений, схема архитектуры, платный оффер |
 | `content/` | Главная и адресные страницы RU/EN, кейсы, LinkedIn, план GitHub |
 | `cv/` | Master и краткие версии RU/EN, два одностраничных PDF |
@@ -68,9 +85,9 @@ python3 -m http.server 8000
 ## Что дальше
 
 1. Сверить биографические поля и личный вклад в командных проектах.
-2. Выбрать направление и проверить понятность на представителях трёх аудиторий.
+2. Проверить понятность готового сайта на представителях трёх аудиторий.
 3. Записать один актуальный сквозной сценарий CODY и подготовить разрешённый публичный код/демо.
-4. Собрать production-сайт и только затем решать о его публикации.
+4. После авторского просмотра определить публичный доступ и постоянный домен сайта.
 5. Проверять спрос через [один ограниченный платный пилот](research/client-offer.md).
 
 ## Границы публикации
