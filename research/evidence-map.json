@@ -1,0 +1,465 @@
+{
+  "title": "Portfolio claim evidence map",
+  "version": "2026-11-06",
+  "scope": "A public, redacted methodology record. Source documents and private locators are not included. Labels support private traceability, not public independent verification.",
+  "record_count": 30,
+  "confidence_counts": {
+    "B": 9,
+    "D": 7,
+    "A": 6,
+    "A/B": 3,
+    "C": 1,
+    "B/C": 3,
+    "B/D": 1
+  },
+  "classification_policy": "Mixed labels remain separate categories and are never rounded up. Each record is counted once.",
+  "records": [
+    {
+      "label": "E01",
+      "topic": "Professional identity",
+      "personal_contribution": "Owner of the profile.",
+      "result": "Identity and professional contact information supplied for the portfolio.",
+      "status": "usable_bounded",
+      "confidence": "B",
+      "provenance": {
+        "kind": "User-supplied profile materials.",
+        "private_trace_label": "E01"
+      },
+      "public_wording": {
+        "ru": "Тимофей Яковлев · timka6942@gmail.com · github.com/TimofeyYA1",
+        "en": "Timofei Iakovlev · timka6942@gmail.com · github.com/TimofeyYA1"
+      }
+    },
+    {
+      "label": "E02",
+      "topic": "Employment chronology",
+      "personal_contribution": "Backend work is documented; the current official title requires confirmation.",
+      "result": "Conflicting source dates remain unresolved; project dates are kept distinct from employment dates.",
+      "status": "awaiting_confirmation",
+      "confidence": "D",
+      "provenance": {
+        "kind": "Conflicting career materials.",
+        "private_trace_label": "E02"
+      },
+      "public_wording": {
+        "ru": "Т-Банк · Backend и data-процессы платформы лояльности · Избранная работа 2026 года",
+        "en": "T-Bank · Backend and data workflows for the loyalty platform · Selected work, 2026"
+      }
+    },
+    {
+      "label": "E03",
+      "topic": "Declarative experiment configuration",
+      "personal_contribution": "Assigned contributor to the relevant implementation work within a team.",
+      "result": "Selected experiment settings can be expressed through configuration instead of code changes.",
+      "status": "usable_bounded",
+      "confidence": "A",
+      "provenance": {
+        "kind": "Archived task snapshot plus a derived project summary.",
+        "private_trace_label": "E03"
+      },
+      "public_wording": {
+        "ru": "Разработал декларативную конфигурацию продуктовых экспериментов: аудитория, условия и действия над кешбэком задаются в одном описании.",
+        "en": "Developed declarative configurations for product experiments, bringing audience selection, conditions and cashback actions into a single definition."
+      }
+    },
+    {
+      "label": "E04",
+      "topic": "Parallel experiments",
+      "personal_contribution": "Contributor to behaviour design and data-processing migration.",
+      "result": "Support for multiple independent experiments is documented.",
+      "status": "usable_bounded",
+      "confidence": "A",
+      "provenance": {
+        "kind": "Archived task snapshot plus a derived project summary.",
+        "private_trace_label": "E04"
+      },
+      "public_wording": {
+        "ru": "Реализовывал поддержку параллельных независимых экспериментов, включая описание семантики и миграцию обработки данных.",
+        "en": "Implemented support for parallel independent experiments, including the behaviour specification and migration of data processing."
+      }
+    },
+    {
+      "label": "E05",
+      "topic": "Reuse across product areas",
+      "personal_contribution": "Contributor to the documented adaptations.",
+      "result": "The configuration approach was adapted across several product areas.",
+      "status": "usable_bounded",
+      "confidence": "A",
+      "provenance": {
+        "kind": "Archived task snapshot plus a derived project summary.",
+        "private_trace_label": "E05"
+      },
+      "public_wording": {
+        "ru": "Адаптировал конфигурационный подход для нескольких продуктовых направлений.",
+        "en": "Adapted the configuration model across multiple product areas."
+      }
+    },
+    {
+      "label": "E06",
+      "topic": "Unfinished reuse work",
+      "personal_contribution": "Planning contribution is documented; completed delivery is not established.",
+      "result": "The snapshot does not establish that the planned reusable library was delivered.",
+      "status": "excluded",
+      "confidence": "D",
+      "provenance": {
+        "kind": "Incomplete items in an archived snapshot.",
+        "private_trace_label": "E06"
+      },
+      "public_wording": null
+    },
+    {
+      "label": "E07",
+      "topic": "Refactoring completion",
+      "personal_contribution": "Contribution to the refactor; final delivery remains unverified.",
+      "result": "A described refactor had not reached a completed status in the snapshot.",
+      "status": "excluded",
+      "confidence": "D",
+      "provenance": {
+        "kind": "Incomplete item and a stronger derived summary.",
+        "private_trace_label": "E07"
+      },
+      "public_wording": null
+    },
+    {
+      "label": "E08",
+      "topic": "Contract-based data delivery",
+      "personal_contribution": "Assigned contributor to the implementation.",
+      "result": "Streaming data delivery with defined message contracts is documented.",
+      "status": "usable_bounded",
+      "confidence": "A",
+      "provenance": {
+        "kind": "Archived task snapshot plus a derived project summary.",
+        "private_trace_label": "E08"
+      },
+      "public_wording": {
+        "ru": "Разрабатывал потоковую поставку данных из хранилища в Kafka с контрактами сообщений.",
+        "en": "Developed streaming data delivery from the warehouse to Kafka using defined message contracts."
+      }
+    },
+    {
+      "label": "E09",
+      "topic": "Delivery state and observability",
+      "personal_contribution": "Assigned contributor within the service team.",
+      "result": "Persistent delivery state, an API and lag monitoring are documented.",
+      "status": "usable_bounded",
+      "confidence": "A",
+      "provenance": {
+        "kind": "Archived task snapshot plus a derived project summary.",
+        "private_trace_label": "E09"
+      },
+      "public_wording": {
+        "ru": "В Kotlin/Spring-сервисе реализовал хранение курсоров отгрузки в PostgreSQL, REST API и метрики отставания.",
+        "en": "Implemented PostgreSQL-backed delivery cursors, a REST API and lag metrics in a Kotlin/Spring service."
+      }
+    },
+    {
+      "label": "E10",
+      "topic": "Validation and diagnostics",
+      "personal_contribution": "Contributor to documented checks and diagnostics.",
+      "result": "Checks and diagnostic data support investigation of experiment processing.",
+      "status": "usable_bounded",
+      "confidence": "A",
+      "provenance": {
+        "kind": "Several completed items in an archived snapshot.",
+        "private_trace_label": "E10"
+      },
+      "public_wording": {
+        "ru": "Добавлял проверки результатов пайплайнов и диагностические данные, помогающие объяснить применение экспериментов к клиенту.",
+        "en": "Added pipeline result validation and diagnostic data to explain how experiments affect an individual customer."
+      }
+    },
+    {
+      "label": "E11",
+      "topic": "Working with analysts",
+      "personal_contribution": "Developer collaborating with analysts.",
+      "result": "Documentation and configuration support preparation of selected experiments.",
+      "status": "usable_bounded",
+      "confidence": "A/B",
+      "provenance": {
+        "kind": "Completed documentation work plus a personal account of collaboration.",
+        "private_trace_label": "E11"
+      },
+      "public_wording": {
+        "ru": "Обсуждал сценарии с аналитиками и подготовил документацию по конфигурациям, чтобы часть экспериментов можно было готовить без изменений в коде.",
+        "en": "Worked with analysts on experiment scenarios and documented the configuration model so that selected experiments could be prepared without code changes."
+      }
+    },
+    {
+      "label": "E12",
+      "topic": "Unmeasured speed improvement",
+      "personal_contribution": "The underlying workflow contribution is described elsewhere.",
+      "result": "A numerical speed claim has no supplied measurement method or baseline.",
+      "status": "excluded",
+      "confidence": "D",
+      "provenance": {
+        "kind": "A self-reported outcome without supporting measurements.",
+        "private_trace_label": "E12"
+      },
+      "public_wording": null
+    },
+    {
+      "label": "E13",
+      "topic": "Activity and testing statistics",
+      "personal_contribution": "Team engineering activity; the counts are not a contribution score.",
+      "result": "Activity counts and changed test files do not establish business impact or test coverage.",
+      "status": "excluded",
+      "confidence": "A/B",
+      "provenance": {
+        "kind": "Recounted snapshot statuses plus derived aggregate statistics.",
+        "private_trace_label": "E13"
+      },
+      "public_wording": null
+    },
+    {
+      "label": "E14",
+      "topic": "New automation responsibilities",
+      "personal_contribution": "Participation in discussions; scope of responsibility unresolved.",
+      "result": "Discussions establish an area of work and interest, not a new title or deployment scale.",
+      "status": "awaiting_confirmation",
+      "confidence": "C",
+      "provenance": {
+        "kind": "Inherited research context.",
+        "private_trace_label": "E14"
+      },
+      "public_wording": null
+    },
+    {
+      "label": "E15",
+      "topic": "Project and freelance practice",
+      "personal_contribution": "Independent work and work in small teams, depending on the project.",
+      "result": "Backend, integration and application work is consistently described; continuous paid tenure is not established.",
+      "status": "usable_bounded",
+      "confidence": "B",
+      "provenance": {
+        "kind": "Consistent self-reported career materials.",
+        "private_trace_label": "E15"
+      },
+      "public_wording": {
+        "ru": "Проектная и фриланс-практика с 2024 года: backend, REST API, интеграции и приложения.",
+        "en": "Project and freelance development since 2024: backend services, REST APIs, integrations and applications."
+      }
+    },
+    {
+      "label": "E16",
+      "topic": "CODY prototype",
+      "personal_contribution": "Developer of the personal prototype; collaborator credits still need final confirmation.",
+      "result": "The project is documented as a personal prototype connecting an iPhone and Mac work sessions.",
+      "status": "documented_prototype",
+      "confidence": "B",
+      "provenance": {
+        "kind": "Project documentation and owner-provided context.",
+        "private_trace_label": "E16"
+      },
+      "public_wording": {
+        "ru": "Разрабатываю CODY — личный прототип для управления рабочими сессиями на Mac с iPhone.",
+        "en": "I am building CODY, a personal prototype for controlling work sessions on a Mac from an iPhone."
+      }
+    },
+    {
+      "label": "E17",
+      "topic": "CODY protocol and session control",
+      "personal_contribution": "Development contribution to the personal project.",
+      "result": "Targeted checks support the presence of a typed protocol, authentication and bounded session actions.",
+      "status": "documented_prototype",
+      "confidence": "B",
+      "provenance": {
+        "kind": "Project documentation and targeted code inspection.",
+        "private_trace_label": "E17"
+      },
+      "public_wording": {
+        "ru": "Связал мобильный клиент и Mac Bridge типизированным протоколом с проверкой сообщений; работа строится вокруг выбранного проекта и сессии.",
+        "en": "Connected a mobile client and Mac Bridge through a typed, validated protocol, with shared project and session context."
+      }
+    },
+    {
+      "label": "E18",
+      "topic": "CODY feature limits",
+      "personal_contribution": "Implementation and documentation of a prototype, with runtime limits.",
+      "result": "Voice interaction is designed for an active app; some integration documentation differs from the code.",
+      "status": "documented_prototype",
+      "confidence": "B",
+      "provenance": {
+        "kind": "Documentation compared with targeted code observations.",
+        "private_trace_label": "E18"
+      },
+      "public_wording": {
+        "ru": "Рабочий прототип: голосовой режим в открытом приложении; публичный сервис пока не запущен.",
+        "en": "Working prototype: voice interaction while the app is active; not a public service."
+      }
+    },
+    {
+      "label": "E19",
+      "topic": "BPMN.space team prototype",
+      "personal_contribution": "Team participant; individual component ownership is not established.",
+      "result": "Targeted inspection supports a structured intermediate graph and deterministic XML compilation; the full user flow was not tested.",
+      "status": "documented_prototype",
+      "confidence": "B",
+      "provenance": {
+        "kind": "Participant account, documentation and targeted code inspection.",
+        "private_trace_label": "E19"
+      },
+      "public_wording": {
+        "ru": "Участвовал в командном хакатонном прототипе BPMN.space: документы и заметки становятся отправной точкой для редактируемой модели процесса.",
+        "en": "Contributed to BPMN.space, a team hackathon prototype that turns documents and notes into a starting point for an editable process model."
+      }
+    },
+    {
+      "label": "E20",
+      "topic": "Service-portfolio project",
+      "personal_contribution": "Development of a personal service presentation.",
+      "result": "A service presentation project exists; it does not prove clients, revenue or agency scale.",
+      "status": "usable_bounded",
+      "confidence": "B/C",
+      "provenance": {
+        "kind": "Local project materials and inherited research.",
+        "private_trace_label": "E20"
+      },
+      "public_wording": {
+        "ru": "ETAPO — проект сайта и сервисных сценариев для моей практики разработки.",
+        "en": "ETAPO is a website and service-flow project for my development practice."
+      }
+    },
+    {
+      "label": "E21",
+      "topic": "Additional service application",
+      "personal_contribution": "Exact personal contribution still needs confirmation.",
+      "result": "A backend implementation is documented, but role attribution, delivery and public-use rights remain unresolved.",
+      "status": "awaiting_confirmation",
+      "confidence": "B/D",
+      "provenance": {
+        "kind": "Project documentation plus unresolved attribution and publication scope.",
+        "private_trace_label": "E21"
+      },
+      "public_wording": null
+    },
+    {
+      "label": "E22",
+      "topic": "Other team and client projects",
+      "personal_contribution": "Individual responsibilities are not established sufficiently for public claims.",
+      "result": "Further case studies need attribution and asset-rights clarification.",
+      "status": "excluded",
+      "confidence": "D",
+      "provenance": {
+        "kind": "Unresolved attribution and publication scope.",
+        "private_trace_label": "E22"
+      },
+      "public_wording": null
+    },
+    {
+      "label": "E23",
+      "topic": "Portfolio concepts",
+      "personal_contribution": "Contribution varies by concept and requires appropriate attribution.",
+      "result": "Concept work must retain a concept label and cannot stand in for client delivery.",
+      "status": "usable_bounded",
+      "confidence": "B/C",
+      "provenance": {
+        "kind": "Project materials and inherited classification.",
+        "private_trace_label": "E23"
+      },
+      "public_wording": {
+        "ru": "Концепт интерфейса и пользовательского сценария.",
+        "en": "Interface and workflow concept."
+      }
+    },
+    {
+      "label": "E24",
+      "topic": "Additional automation prototype",
+      "personal_contribution": "Development contribution requires a clearer project-specific account.",
+      "result": "An automation prototype is described; current integrations and ownership scope remain unverified.",
+      "status": "excluded",
+      "confidence": "B/C",
+      "provenance": {
+        "kind": "Historical project description and inherited research.",
+        "private_trace_label": "E24"
+      },
+      "public_wording": null
+    },
+    {
+      "label": "E25",
+      "topic": "Current education",
+      "personal_contribution": "Student.",
+      "result": "First-year bachelor’s study is self-reported; no awarded degree is claimed.",
+      "status": "usable_bounded",
+      "confidence": "B",
+      "provenance": {
+        "kind": "Owner-supplied education information.",
+        "private_trace_label": "E25"
+      },
+      "public_wording": {
+        "ru": "Центральный университет, Москва · Бакалавриат, первый курс. C++, математика и бизнес-дисциплины.",
+        "en": "Central University, Moscow · First-year bachelor’s student. Coursework includes C++, mathematics and business subjects."
+      }
+    },
+    {
+      "label": "E26",
+      "topic": "Unverified education details",
+      "personal_contribution": "No additional qualification claimed.",
+      "result": "Additional enrolment and GPA claims are omitted until confirmed.",
+      "status": "excluded",
+      "confidence": "D",
+      "provenance": {
+        "kind": "Unconfirmed historical career material.",
+        "private_trace_label": "E26"
+      },
+      "public_wording": null
+    },
+    {
+      "label": "E27",
+      "topic": "Competition achievements",
+      "personal_contribution": "Participant; formal award and individual or team status need final checking.",
+      "result": "Competition results are self-reported; certificates were not inspected.",
+      "status": "awaiting_confirmation",
+      "confidence": "B",
+      "provenance": {
+        "kind": "Repeated self-reported achievements.",
+        "private_trace_label": "E27"
+      },
+      "public_wording": null
+    },
+    {
+      "label": "E28",
+      "topic": "Language and relocation",
+      "personal_contribution": "Applicant describing current circumstances and plans.",
+      "result": "Language level is a self-assessment; relocation intent does not imply work authorisation.",
+      "status": "usable_bounded",
+      "confidence": "B",
+      "provenance": {
+        "kind": "Owner-supplied language and location context.",
+        "private_trace_label": "E28"
+      },
+      "public_wording": {
+        "ru": "Москва, Россия · Рассматриваю переезд. Английский — B1, самооценка.",
+        "en": "Moscow, Russia · Open to relocation. English: B1, self-assessed."
+      }
+    },
+    {
+      "label": "E29",
+      "topic": "Technology experience",
+      "personal_contribution": "Backend and data work, with additional project-specific experience.",
+      "result": "Technologies are linked to use in projects; equal proficiency across the entire stack is not implied.",
+      "status": "usable_bounded",
+      "confidence": "A/B",
+      "provenance": {
+        "kind": "Project records, documentation and self-reported experience.",
+        "private_trace_label": "E29"
+      },
+      "public_wording": {
+        "ru": "Python, SQL, Airflow, Kafka, PostgreSQL; FastAPI и Django/DRF в проектах; Kotlin/Spring и TypeScript/React Native как дополнительный опыт.",
+        "en": "Python, SQL, Airflow, Kafka, PostgreSQL; FastAPI and Django/DRF in projects; additional experience with Kotlin/Spring and TypeScript/React Native."
+      }
+    },
+    {
+      "label": "E30",
+      "topic": "Third-party attribution",
+      "personal_contribution": "Integration or research role only, unless separately evidenced.",
+      "result": "Integration or research does not establish authorship of third-party products.",
+      "status": "excluded",
+      "confidence": "D",
+      "provenance": {
+        "kind": "An unsupported authorship claim is explicitly excluded.",
+        "private_trace_label": "E30"
+      },
+      "public_wording": null
+    }
+  ]
+}

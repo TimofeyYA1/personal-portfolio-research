@@ -1,0 +1,307 @@
+{
+  "checked_on": "2026-11-05",
+  "method": "Read-only review of public pages through web search/open. No admissions portals were submitted or authenticated. Design observations describe visible content; conversion effects are not claimed.",
+  "references": [
+    {
+      "id": "R01",
+      "category": "portfolio",
+      "title": "Julia Evans — Projects",
+      "url": "https://jvns.ca/projects/",
+      "checked_on": "2026-11-05",
+      "observation": "Инструменты объяснены через конкретную потребность; есть ссылки для использования, соавторы и статус сопровождения.",
+      "limitation": "Собственное описание автора; эффект на найм или продажи не измерялся.",
+      "implication_for_timofei": "Показывать пользовательскую задачу, артефакт и честное авторство."
+    },
+    {
+      "id": "R02",
+      "category": "portfolio",
+      "title": "Bartosz Ciechanowski — interactive essays",
+      "url": "https://ciechanow.ski/",
+      "checked_on": "2026-11-05",
+      "observation": "Текст эссе связан с управляемыми иллюстрациями: читатель меняет параметры и наблюдает последствия.",
+      "limitation": "Изучено опубликованное содержимое; производительность и доступность всех взаимодействий не аудировались.",
+      "implication_for_timofei": "Одна маленькая демонстрация инженерного принципа вместо декоративной анимации."
+    },
+    {
+      "id": "R03",
+      "category": "portfolio",
+      "title": "Mitchell Hashimoto",
+      "url": "https://mitchellh.com/",
+      "checked_on": "2026-11-05",
+      "observation": "Короткая биография связывает проекты с ролями и явно разделяет текущую и прошлую работу.",
+      "limitation": "История ролей — утверждения личного сайта; причинная связь с карьерным успехом не установлена.",
+      "implication_for_timofei": "Статус и вклад рядом с каждым проектом."
+    },
+    {
+      "id": "R04",
+      "category": "portfolio",
+      "title": "Andrej Karpathy",
+      "url": "https://karpathy.ai/",
+      "checked_on": "2026-11-05",
+      "observation": "Хронология объединяет образование, работу и преподавание; учебные материалы разделены по уровню аудитории.",
+      "limitation": "Не переносить масштаб известного исследователя на молодого инженера; нет данных о конверсии сайта.",
+      "implication_for_timofei": "Общее правдивое ядро биографии и разные уровни глубины."
+    },
+    {
+      "id": "R05",
+      "category": "portfolio",
+      "title": "Maggie Appleton — Garden and About",
+      "url": "https://maggieappleton.com/",
+      "checked_on": "2026-11-05",
+      "observation": "Различает эссе, незавершённые заметки и наблюдения; делает видимым процесс мышления.",
+      "limitation": "Не вся заметка — завершённое исследование; не доказано влияние сайта на работу.",
+      "implication_for_timofei": "Явные статусы готовности и открытые вопросы."
+    },
+    {
+      "id": "R06",
+      "category": "portfolio",
+      "title": "Maggie Appleton — About",
+      "url": "https://maggieappleton.com/about",
+      "checked_on": "2026-11-05",
+      "observation": "Связывает профессиональную историю с устойчивыми интересами и личным контекстом.",
+      "limitation": "Роли и даты — самоописание автора.",
+      "implication_for_timofei": "Небольшой человеческий рассказ, поддержанный работами."
+    },
+    {
+      "id": "R07",
+      "category": "portfolio",
+      "title": "Derek Sivers",
+      "url": "https://sive.rs/",
+      "checked_on": "2026-11-05",
+      "observation": "Разные уровни знакомства: короткая биография, подробная About, Now и контакт.",
+      "limitation": "Чужую репутацию и обещания отвечать всем нельзя копировать; конверсия неизвестна.",
+      "implication_for_timofei": "Короткий вход с добровольным углублением и понятной причиной написать."
+    },
+    {
+      "id": "R08",
+      "category": "portfolio",
+      "title": "Dylan Landucci",
+      "url": "https://www.dyl.codes/",
+      "checked_on": "2026-11-05",
+      "observation": "Студенческая идентичность сочетается со стажировками, проектами и личными интересами.",
+      "limitation": "Статус и стажировки независимо не проверялись; сайт не является доказательством причины поступления.",
+      "implication_for_timofei": "Не скрывать обучение ради искусственной senior-подачи."
+    },
+    {
+      "id": "U01",
+      "category": "admissions",
+      "title": "FH Upper Austria — Artificial Intelligence Solutions BSc",
+      "url": "https://fh-ooe.at/en/degree-programs/artificial-intelligence-solutions-bachelor",
+      "checked_on": "2026-11-05",
+      "observation": "English, B2, university entrance qualification, interview; на странице есть прикладная проектная часть.",
+      "limitation": "Портфолио на просмотренной странице не указано; отдельное поле website в форме не проверено.",
+      "implication_for_timofei": "Портфолио как дополнительное объяснение проекта и мотивации, не замена admission documents."
+    },
+    {
+      "id": "U02",
+      "category": "admissions",
+      "title": "FH Upper Austria — Hagenberg admission procedure",
+      "url": "https://fh-ooe.at/en/application/admission-procedure-hagenberg",
+      "checked_on": "2026-11-05",
+      "observation": "Для bachelor описаны проверка документов и интервью; страница относится к entry fall 2027.",
+      "limitation": "Специальные требования зависят от программы; наличие интервью не означает обязательный просмотр сайта.",
+      "implication_for_timofei": "Готовить проект для обсуждения после выполнения формальных требований."
+    },
+    {
+      "id": "U03",
+      "category": "admissions",
+      "title": "FH Upper Austria — Software Engineering BSc",
+      "url": "https://fh-ooe.at/en/degree-programs/software-engineering-bachelor",
+      "checked_on": "2026-11-05",
+      "observation": "Основной язык обучения немецкий; отдельные модули могут быть на английском.",
+      "limitation": "Англоязычная веб-страница не означает английский язык программы.",
+      "implication_for_timofei": "Исправить shortlist; не писать мотивацию под ошибочный English-taught вариант."
+    },
+    {
+      "id": "U04",
+      "category": "admissions",
+      "title": "FH Wiener Neustadt — Computer Science BSc",
+      "url": "https://www.fhwn.ac.at/en/studyprogramme/bachelor-computer-science",
+      "checked_on": "2026-11-05",
+      "observation": "English, completed secondary education, C1; интервью и тестирование; указан intake September 2027.",
+      "limitation": "Портфолио не указано; связанный PDF имеет 2026 в имени, маршрут SAT/ACT требует сверки.",
+      "implication_for_timofei": "Сайт — дополнительный материал к CV/интервью, не подтверждение eligibility."
+    },
+    {
+      "id": "U05",
+      "category": "admissions",
+      "title": "FHWN — linked admission procedure PDF",
+      "url": "https://dzm8y13tmaxsv.cloudfront.net/wiener_neustadt/Studium-und-Weiterbildung/Technik/BA-Computer-Science-International/admission_2026_EN.pdf",
+      "checked_on": "2026-11-05",
+      "observation": "В перечне документов есть CV, подтверждение языка и среднего образования; схема описывает отдельные маршруты.",
+      "limitation": "Файл обозначен 2026; не переносить SAT-порог и маршрут автоматически на 2027; website field не установлен.",
+      "implication_for_timofei": "Дополнительная ссылка внутри CV возможна как редакторское решение."
+    },
+    {
+      "id": "U06",
+      "category": "admissions",
+      "title": "Óbuda — Computer Science Engineering BSc",
+      "url": "https://nik.uni-obuda.hu/en/computer-science-engineering-bsc-2/",
+      "checked_on": "2026-11-05",
+      "observation": "Программа описана как англоязычная; акцент на разработке и поддержке IT-систем.",
+      "limitation": "Это программная карточка, не полный перечень условий для конкретного кандидата.",
+      "implication_for_timofei": "Связывать проекты с системами, инфраструктурой и обучением."
+    },
+    {
+      "id": "U07",
+      "category": "admissions",
+      "title": "Óbuda — Required documents",
+      "url": "https://uni-obuda.hu/required-documents/",
+      "checked_on": "2026-11-05",
+      "observation": "CV, motivation letter, English certificate и школьные документы; portfolio для BSc указан у Design Engineering.",
+      "limitation": "Нельзя распространять требование Design Engineering на Computer Science; поля формы не проверены.",
+      "implication_for_timofei": "Учебный CV и мотивация первичны; сайт дополнительный."
+    },
+    {
+      "id": "U08",
+      "category": "admissions",
+      "title": "Óbuda — Examination",
+      "url": "https://uni-obuda.hu/entrance-tests/",
+      "checked_on": "2026-11-05",
+      "observation": "Для CS Engineering BSc перечислены Mathematics, Physics or Informatics, Oral exam.",
+      "limitation": "Применимость конкретного маршрута и intake уточняется перед подачей.",
+      "implication_for_timofei": "Подготовка к испытаниям важнее визуальной полировки портфолио."
+    },
+    {
+      "id": "C01",
+      "category": "commercial",
+      "title": "Upwork — Suspended operations in Russia and Belarus",
+      "url": "https://support.upwork.com/hc/en-us/articles/5691956088339-Suspended-operations-in-Russia-and-Belarus",
+      "checked_on": "2026-11-05",
+      "observation": "Официальная справка описывает приостановку операций и location-based suspension.",
+      "limitation": "Состояние конкретного аккаунта не проверено.",
+      "implication_for_timofei": "Не закладывать Upwork как текущий канал работы из России."
+    },
+    {
+      "id": "C02",
+      "category": "commercial",
+      "title": "Acquire — Pre-revenue businesses",
+      "url": "https://help.acquire.com/what-pre-revenue-businesses-are-allowed",
+      "checked_on": "2026-11-05",
+      "observation": "Некоторые функциональные передаваемые SaaS/AI-продукты могут подходить без выручки; идея и coming-soon не подходят.",
+      "limitation": "Одобрение конкретного продукта и доступность аккаунта/выплат не установлены.",
+      "implication_for_timofei": "Продажа продукта — отдельный путь после создания актива, не продажа идеи."
+    },
+    {
+      "id": "C03",
+      "category": "commercial",
+      "title": "Flippa — Apps marketplace",
+      "url": "https://flippa.com/buy/apps",
+      "checked_on": "2026-11-05",
+      "observation": "Есть раздел продажи мобильных приложений.",
+      "limitation": "Объявления и asking prices не доказывают состоявшиеся сделки; KYC/выплаты для пользователя не проверены.",
+      "implication_for_timofei": "Рассматривать только как возможный будущий рынок активов."
+    },
+    {
+      "id": "O01",
+      "category": "documented_outcome",
+      "title": "Julia Evans — Zine revenue for 2019",
+      "url": "https://jvns.ca/blog/2019/10/01/zine-revenue-2019/",
+      "checked_on": "2026-11-06",
+      "observation": "Датированный авторский отчёт: 87 858 USD выручки за январь–сентябрь 2019; отдельное описание продаж продуктов.",
+      "limitation": "self-report; не аудит; выручка не прибыль; атрибуция продаж конкретному сайту и дизайну не установлена.",
+      "implication_for_timofei": "Давать полезный материал и проверять спрос; не переносить чужой доход в прогноз."
+    },
+    {
+      "id": "O02",
+      "category": "documented_outcome",
+      "title": "Julia Evans — 2019 year in review",
+      "url": "https://jvns.ca/blog/2019-year-in-review/",
+      "checked_on": "2026-11-06",
+      "observation": "Автор сообщает об уходе из штатной работы в августе 2019 и переходе к Wizard Zines.",
+      "limitation": "Собственный ретроспективный рассказ; не доказательство влияния оформления сайта.",
+      "implication_for_timofei": "Публичное объяснение может стать самостоятельным продуктом после проверки спроса."
+    },
+    {
+      "id": "O03",
+      "category": "documented_outcome",
+      "title": "Lee Robinson — direct AMA",
+      "url": "https://www.reddit.com/r/vercel/comments/1kci8dr/im_leerob_and_i_work_at_vercel_ama/",
+      "checked_on": "2026-11-06",
+      "observation": "Автор описывает приход в Vercel после создания Next.js-курсов и обучения React-сообщества.",
+      "limitation": "Прямой self-report; последовательность событий не устанавливает единственную причину найма.",
+      "implication_for_timofei": "Публиковать релевантную будущей работе пользу."
+    },
+    {
+      "id": "O04",
+      "category": "documented_outcome",
+      "title": "Lee Robinson — May 2021 newsletter",
+      "url": "https://buttondown.com/leerob/archive/a-new-role-for-me-im-hiring/",
+      "checked_on": "2026-11-06",
+      "observation": "Письмо от 20 мая 2021 сообщает о повышении до Head of Developer Relations.",
+      "limitation": "Историческая роль, не текущая; конверсия личного сайта не измерена.",
+      "implication_for_timofei": "Отделять подтверждённый карьерный исход от гипотезы о канале."
+    },
+    {
+      "id": "O05",
+      "category": "documented_outcome",
+      "title": "Lee Robinson — archived Work",
+      "url": "https://archive.leerob.io/work",
+      "checked_on": "2026-11-06",
+      "observation": "Авторская история инженерной работы, преподавания и развития developer community.",
+      "limitation": "Архив, не актуальная биография; самоописание результатов.",
+      "implication_for_timofei": "Связывать публичную работу с предметом профессиональной специализации."
+    },
+    {
+      "id": "O06",
+      "category": "documented_outcome",
+      "title": "CSS Design Awards — Website of the Year 2019 winners",
+      "url": "https://www.cssdesignawards.com/blog/website-of-the-year-2019-winners/330/",
+      "checked_on": "2026-11-06",
+      "observation": "Организатор назвал Bruno Simon Portfolio победителем Website of the Year 2019.",
+      "limitation": "Официальная награда, но не доказательство найма, продаж или конверсии.",
+      "implication_for_timofei": "Демонстрировать именно способность, за которую хочется получать приглашения."
+    },
+    {
+      "id": "O07",
+      "category": "documented_outcome",
+      "title": "Vercel welcomes Rich Harris",
+      "url": "https://vercel.com/blog/vercel-welcomes-rich-harris-creator-of-svelte",
+      "checked_on": "2026-11-06",
+      "observation": "Сообщение работодателя от 11 ноября 2021: Harris присоединился и сможет работать над Svelte full-time.",
+      "limitation": "Подтверждён найм вокруг open-source-проекта; личный сайт как канал не установлен.",
+      "implication_for_timofei": "Сайт должен вести к проверяемому инженерному артефакту."
+    },
+    {
+      "id": "V01",
+      "category": "visual_reference",
+      "title": "Paco Coursey",
+      "url": "https://paco.me/",
+      "checked_on": "2026-11-05",
+      "observation": "Спокойная наборная страница, ясные проекты и отдельные переходы к работе и текстам.",
+      "limitation": "Сайт прочитан и визуально осмотрен; результат для карьеры не установлен.",
+      "implication_for_timofei": "Переносить редакционный приём и демонстрацию способности, не копировать чужой бренд."
+    },
+    {
+      "id": "V02",
+      "category": "visual_reference",
+      "title": "Rauno Freiberg",
+      "url": "https://rauno.me/",
+      "checked_on": "2026-11-05",
+      "observation": "Крупная авторская типографика и композиция превращают короткое представление в запоминающийся объект.",
+      "limitation": "Визуально осмотрен первый экран; конверсия и доступность всей навигации не исследованы.",
+      "implication_for_timofei": "Переносить редакционный приём и демонстрацию способности, не копировать чужой бренд."
+    },
+    {
+      "id": "V03",
+      "category": "visual_reference",
+      "title": "Brian Lovin",
+      "url": "https://brianlovin.com/",
+      "checked_on": "2026-11-05",
+      "observation": "Короткое представление ведёт к конкретным проектам и материалам.",
+      "limitation": "Прочитана структура страницы; визуальный аудит не проводился.",
+      "implication_for_timofei": "Переносить редакционный приём и демонстрацию способности, не копировать чужой бренд."
+    },
+    {
+      "id": "V04",
+      "category": "visual_reference",
+      "title": "Bruno Simon",
+      "url": "https://bruno-simon.com/",
+      "checked_on": "2026-11-05",
+      "observation": "Портфолио само демонстрирует интерактивную web-разработку.",
+      "limitation": "Прочитана структура и управление; награда относится к версии 2019, не ко всем последующим версиям.",
+      "implication_for_timofei": "Переносить редакционный приём и демонстрацию способности, не копировать чужой бренд."
+    }
+  ],
+  "updated_on": "2026-11-06"
+}

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560" role="img" aria-labelledby="title desc">
+<title id="title">Evidence quality across 30 portfolio statements</title>
+<desc id="desc">A: 6. A/B: 3. B: 9. B/C: 3. B/D: 1. C: 1. D: 7. Mixed categories are separate. This describes the sources of claims, not the person.</desc>
+<rect width="960" height="560" fill="#f7f5ef"/>
+<g font-family="Arial, Helvetica, sans-serif" fill="#202723">
+<text x="48" y="54" font-size="26" font-weight="700">Evidence behind the portfolio</text>
+<text x="48" y="84" font-size="16">30 statements · each counted once · mixed categories kept separate</text>
+<text x="48" y="112" font-size="15" fill="#4d5753">Качество источников утверждений; не оценка человека</text>
+
+<text x="48" y="176" font-size="17" font-weight="700">A</text>
+<text x="108" y="176" font-size="16">Primary snapshot</text>
+<rect x="360" y="154" width="430" height="31" rx="2" fill="#e7e9e4"/>
+<rect x="360" y="154" width="258" height="31" rx="2" fill="#155c50"/>
+<text x="815" y="176" font-size="19" font-weight="700">6</text>
+<text x="48" y="221" font-size="17" font-weight="700">A/B</text>
+<text x="108" y="221" font-size="16">Primary + reported</text>
+<rect x="360" y="199" width="430" height="31" rx="2" fill="#e7e9e4"/>
+<rect x="360" y="199" width="129" height="31" rx="2" fill="#4e7769"/>
+<text x="815" y="221" font-size="19" font-weight="700">3</text>
+<text x="48" y="266" font-size="17" font-weight="700">B</text>
+<text x="108" y="266" font-size="16">Reported / inspected</text>
+<rect x="360" y="244" width="430" height="31" rx="2" fill="#e7e9e4"/>
+<rect x="360" y="244" width="387" height="31" rx="2" fill="#365e80"/>
+<text x="815" y="266" font-size="19" font-weight="700">9</text>
+<text x="48" y="311" font-size="17" font-weight="700">B/C</text>
+<text x="108" y="311" font-size="16">Reported + inherited</text>
+<rect x="360" y="289" width="430" height="31" rx="2" fill="#e7e9e4"/>
+<rect x="360" y="289" width="129" height="31" rx="2" fill="#71869b"/>
+<text x="815" y="311" font-size="19" font-weight="700">3</text>
+<text x="48" y="356" font-size="17" font-weight="700">B/D</text>
+<text x="108" y="356" font-size="16">Documented + unresolved</text>
+<rect x="360" y="334" width="430" height="31" rx="2" fill="#e7e9e4"/>
+<rect x="360" y="334" width="43" height="31" rx="2" fill="#927855"/>
+<text x="815" y="356" font-size="19" font-weight="700">1</text>
+<text x="48" y="401" font-size="17" font-weight="700">C</text>
+<text x="108" y="401" font-size="16">Inherited context</text>
+<rect x="360" y="379" width="430" height="31" rx="2" fill="#e7e9e4"/>
+<rect x="360" y="379" width="43" height="31" rx="2" fill="#7b6f89"/>
+<text x="815" y="401" font-size="19" font-weight="700">1</text>
+<text x="48" y="446" font-size="17" font-weight="700">D</text>
+<text x="108" y="446" font-size="16">Unresolved</text>
+<rect x="360" y="424" width="430" height="31" rx="2" fill="#e7e9e4"/>
+<rect x="360" y="424" width="301" height="31" rx="2" fill="#9b594c"/>
+<text x="815" y="446" font-size="19" font-weight="700">7</text>
+<text x="360" y="487" font-size="13" fill="#4d5753">Number of statements</text>
+<text x="48" y="526" font-size="14" fill="#4d5753">A is a primary snapshot, not an independent audit. Source: evidence-map.json · 6 Nov 2026</text>
+</g></svg>
