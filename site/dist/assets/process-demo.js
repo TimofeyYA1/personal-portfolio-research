@@ -232,7 +232,7 @@ export function mountProcessDemo(container, { locale = 'ru' } = {}) {
     root.lang = state.locale;
     root.setAttribute('aria-labelledby', `${uid}-title`);
     root.innerHTML = `<style>${css}</style>
-      <header class="pd-head"><p class="pd-eyebrow">${t.eyebrow}</p><h3 class="pd-title" id="${uid}-title">${t.title}</h3><p class="pd-intro">${t.intro}</p></header>
+      <header class="pd-head"><p class="pd-eyebrow">${t.eyebrow}</p><h2 class="pd-title" id="${uid}-title">${t.title}</h2><p class="pd-intro">${t.intro}</p></header>
       <div class="pd-inputs">
         <div class="pd-step"><h4 class="pd-step-heading"><span class="pd-number">01</span>${t.sourceLabel}</h4><span class="pd-source-name">S1 / ${t.sourceName}</span><blockquote class="pd-quote">${t.source}</blockquote><p class="pd-gap">${t.missing}</p></div>
         <div class="pd-step"><h4 class="pd-step-heading"><span class="pd-number">02</span>${t.clarifyLabel}</h4><label class="pd-field-label" for="${uid}-role">${t.question}</label><select class="pd-select" id="${uid}-role" data-pd-select aria-describedby="${uid}-help" aria-invalid="false"><option value="">${t.choose}</option><option value="manager">${t.manager}</option><option value="coordinator">${t.coordinator}</option><option value="unknown">${t.unknown}</option></select><p class="pd-help" id="${uid}-help">${t.help}</p><p class="pd-error" data-pd-error id="${uid}-error" hidden></p><div class="pd-actions"><button class="pd-approve" type="button" data-pd-action="approve">${t.approve}</button><button class="pd-reset" type="button" data-pd-action="reset">${t.reset}</button></div></div>

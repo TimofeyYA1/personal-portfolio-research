@@ -1,15 +1,21 @@
-# Credits and design rationale
+# Sources, skills and assets
 
-This portfolio uses original DOM/SVG illustrations and synthetic, browser-local demos. No employer screens, private repository code or client records are distributed.
+## Included assets
 
-## Included open-source assets
+| Asset | Version | License |
+| --- | --- | --- |
+| [Motion](https://motion.dev/), browser bundle | 14.9.1 | MIT, included in `dist/assets/licenses/` |
+| [Manrope via Fontsource](https://fontsource.org/fonts/manrope), Latin/Cyrillic variable | 5.3.0 | OFL 1.1, included |
 
-| Asset | Pinned version | Source | License |
-| --- | --- | --- | --- |
-| Motion, vanilla browser bundle | 14.9.1 | [Motion documentation](https://motion.dev/docs/quick-start) | MIT, included in `dist/assets/licenses/` |
-| Manrope, Latin + Cyrillic variable font | Fontsource 5.3.0 | [Fontsource Manrope](https://fontsource.org/fonts/manrope) | OFL 1.1, included |
-| Cormorant Garamond, Latin + Cyrillic, 500 regular/italic | Fontsource 5.3.0 | [Fontsource Cormorant Garamond](https://fontsource.org/fonts/cormorant-garamond) | OFL 1.1, included |
+Fonts and motion code are served locally. Cormorant files remain as historical assets from the first direction but are not loaded by the new stylesheet. No analytics, tracking requests or third-party font CDN are used.
 
-Packages were obtained from the npm registry; assets are served locally. The site does not require a CDN, external analytics, an API key or an AI provider to run its interactions. Native scrolling is preserved. Reduced-motion preferences are handled in CSS and JavaScript.
+## Design tools applied
 
-The editorial structure and motion decisions are explained in [the implementation research](../research/site-motion-research.md), including primary design references and the limits of what those examples demonstrate. Their layouts, screenshots and source code are not copied into this site. No claims about conversion or employment outcomes are inferred from visual popularity.
+- [Anthropic Frontend Design](https://github.com/anthropics/skills/tree/main/skills/frontend-design): installed from the official repository on 6 November 2026. Used for art direction and implementation. Apache 2.0.
+- [Impeccable](https://github.com/pbakaus/impeccable): installed from the official repository on 6 November 2026; skill metadata version 4.8.0. Used for a bounded final polish pass and one detector run. Apache 2.0. A heuristic detector is not a quality certificate or user research.
+- [User-supplied Continue guide](https://continue-workspace-timofei.bracedcliff.chatgpt.site/style-guide.html): black/white/purple palette, Manrope, connected spatial motion and stable text. The personal mark, layout, illustrative UI and code were authored for this portfolio. Continue's logo and source are not copied.
+- [Video supplied by the user](https://www.youtube.com/watch?v=Dp7HaDgtsEA): reviewed through its transcript as a discovery source. Recommendations were assessed for this portfolio rather than installed as a bundle.
+
+Skills are authoring tools installed on the owner's machine, not site runtime dependencies. Their source files and runtime caches are not redistributed in this repository. Exact installed SKILL.md fingerprints are recorded in the accompanying research.
+
+The DOM/CSS illustrations are synthetic. They are not product screenshots or proof of a live CODY connection. The motion library handles explicit state feedback; a small native scroll observer handles decorative spatial movement. No extra GSAP, Three.js or dashboard component dependency was needed for this interaction.

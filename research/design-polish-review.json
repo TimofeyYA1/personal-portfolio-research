@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-06",
+  "scope": "7 generated RU HTML routes, one heuristic scan before final focused corrections",
+  "findings": {
+    "low-contrast": 1,
+    "dark-glow": 10,
+    "cramped-padding": 2,
+    "nested-cards": 1,
+    "skipped-heading": 1,
+    "ai-color-palette": 3
+  },
+  "corrected": [
+    "Heading hierarchy for audience routes and process demo",
+    "Decorative window dots brightened",
+    "Explicit vertical inset in miniature title/action bars",
+    "Removed ornamental glow from eyes and connection marker"
+  ],
+  "retained_with_reason": [
+    "Purple accent follows the explicit user-supplied guide; it is not automatically an error",
+    "Miniature phone/window nesting represents devices and context, rather than repeated page card containers"
+  ],
+  "limits": "One detector run, not a post-fix clean score, accessibility audit or evidence of appeal/conversion. Corrections were checked in the browser."
+}

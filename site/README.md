@@ -1,14 +1,27 @@
-# Timofei Iakovlev — portfolio site
+# Timofei Iakovlev — connected work
 
-Static bilingual site with 3 audience routes, 3 case studies and independent interactive illustrations.
+Second visual direction, rebuilt after the owner rejected the first design. Dark, continuous canvas; self-hosted Manrope; a spatial CODY illustration; specific project evidence before long analysis. Russian and English, three audience routes, three case studies, two PDF CVs.
 
-## Build and preview
+## Run
 
-Run `python3 build.py` after changing `site-content.json`. Styles and interactions are in `dist/assets/`.
-Serve `dist/` using `python3 -m http.server 8000 --directory dist`.
+```sh
+python3 build.py
+python3 -m http.server 8000 --directory dist
+```
 
-Routes: `/ru/`, `/en/`, then `engineering/`, `learning/`, `collaborate/` and `work/tbank/`, `work/cody/`, `work/bpmn/`.
+Open `/ru/` or `/en/`. Audience routes: `engineering/`, `learning/`, `collaborate/`. Cases: `work/tbank/`, `work/cody/`, `work/bpmn/`.
 
-Motion 14.9.1 is vendored locally under MIT. Fonts are Manrope and Cormorant Garamond via Fontsource 5.3.0 under OFL 1.1. Licenses live in `dist/assets/licenses/`. All illustrations and demo logic are made for this site; no employer or client data is included. Demo actions run locally and do not call AI or control real devices.
+`build.py` contains the static page templates, `site-content.json` the detailed case/audience text, and `dist/assets/` the CSS and interactions. Generated HTML and CV files are committed, so a Python runtime is optional for serving. No dependency install, API key or build service is required.
 
-The initial hosted version is owner-private and noindex. Public release requires checking employment chronology, individual project attribution and the appropriate sharing setting. The GitHub research package is a separate public source publication.
+## Behaviour
+
+- CODY scene: context → task → fictional result. Native scroll moves only decorative planes, with smaller travel on mobile. No autoplay or scroll locking.
+- A visible motion preference persists locally. Operating-system reduced motion takes priority.
+- Bank example: changes are validated before applying; invalid inputs retain the last valid rule.
+- CODY case: an illustrative lost connection has no successful execution state.
+- Process example: an unknown owner blocks construction; clarification is distinguished from the source.
+- Normal links, CV downloads and all case text remain available without JavaScript.
+
+All demos use fictional data and run locally. They do not control devices, call AI or reproduce employer interfaces. Original closed project code is not included.
+
+[Design decisions](DESIGN.md), [product context](PRODUCT.md), [credits](CREDITS.md), [validation](VALIDATION.md). The hosted Site remains owner-private and noindex. The research/source repository is public.

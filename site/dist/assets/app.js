@@ -135,129 +135,6 @@ function initProgress() {
   update();
 }
 
-function initEntranceMotion() {
-  let initialized = false;
-  let retry = 0;
-  let stopInView;
-  const startedAt = performance.now();
-  const active = new Map();
-
-  const stopAll = () => {
-    active.forEach(({ controls, restore }) => {
-      controls?.stop?.();
-      restore();
-    });
-    active.clear();
-  };
-
-  function reveal(element, delay = 0) {
-    if (motionPreference.matches || element.dataset.motionRevealed) return;
-    const api = window.Motion;
-    if (typeof api?.animate !== 'function') return;
-    element.dataset.motionRevealed = 'true';
-    const prior = { opacity: element.style.opacity, transform: element.style.transform };
-    const restore = () => {
-      element.style.opacity = prior.opacity;
-      element.style.transform = prior.transform;
-      active.delete(element);
-    };
-    try {
-      const controls = api.animate(element, { opacity: [0, 1], y: [18, 0] }, {
-        duration: 0.7, delay, ease: [0.22, 1, 0.36, 1],
-      });
-      active.set(element, { controls, restore });
-      if (typeof controls?.then === 'function') controls.then(restore, restore);
-    } catch { restore(); }
-  }
-
-  function initialize() {
-    if (disposed || initialized || motionPreference.matches) return;
-    const api = window.Motion;
-    if (typeof api?.animate !== 'function' || typeof api?.inView !== 'function') {
-      if (performance.now() - startedAt < 3000) retry = setTimeout(initialize, 120);
-      return;
-    }
-    initialized = true;
-    const entrance = document.querySelectorAll('.hero-intro, .headline-line > span, .headline-line > em, .hero-description, .hero-cta, .hero-foot');
-    entrance.forEach((element, index) => reveal(element, Math.min(index * 0.075, 0.35)));
-    const targets = Array.from(document.querySelectorAll('.reveal'));
-    if (targets.length) {
-      try {
-        stopInView = api.inView(targets, element => { reveal(element); }, { amount: 0.12 });
-      } catch {
-        // Failure to observe never leaves hidden elements behind.
-        targets.forEach(element => { element.style.opacity = ''; element.style.transform = ''; });
-      }
-    }
-  }
-
-  listen(motionPreference, 'change', () => {
-    if (motionPreference.matches) {
-      stopAll();
-      clearTimeout(retry);
-    } else initialize();
-  });
-  const script = document.querySelector('script[src$="motion.js"]');
-  if (script) listen(script, 'load', initialize, { once: true });
-  cleanup.push(() => { clearTimeout(retry); stopInView?.(); stopAll(); });
-  initialize();
-}
-
-function initInstruments() {
-  document.querySelectorAll('[data-instrument]').forEach(instrument => {
-    const paths = Array.from(instrument.querySelectorAll('.signal-line')).map(element => ({
-      element,
-      noise: (element.dataset.noise || '').split(',').map(Number),
-      order: (element.dataset.order || '').split(',').map(Number),
-    })).filter(item => item.noise.length === 14 && item.order.length === 14 && [...item.noise, ...item.order].every(Number.isFinite));
-    if (!paths.length) return;
-    let frame = 0;
-    let observer;
-    const d = points => {
-      const v = points.map(number => Math.round(number * 100) / 100);
-      return `M${v[0]},${v[1]} C${v[2]},${v[3]} ${v[4]},${v[5]} ${v[6]},${v[7]} S${v[8]},${v[9]} ${v[10]},${v[11]} L${v[12]},${v[13]}`;
-    };
-    const paint = fraction => paths.forEach(({ element, noise, order }) => {
-      element.setAttribute('d', d(noise.map((value, i) => value + (order[i] - value) * fraction)));
-    });
-    const finish = () => {
-      cancelAnimationFrame(frame);
-      frame = 0;
-      paint(1);
-      instrument.dataset.state = 'ordered';
-      instrument.classList.add('is-ordered');
-      instrument.setAttribute('aria-busy', 'false');
-    };
-    const play = () => {
-      cancelAnimationFrame(frame);
-      observer?.disconnect();
-      if (motionPreference.matches) { finish(); return; }
-      instrument.dataset.state = 'assembling';
-      instrument.classList.remove('is-ordered');
-      instrument.setAttribute('aria-busy', 'true');
-      paint(0);
-      const start = performance.now();
-      const tick = now => {
-        const progress = Math.min(1, Math.max(0, (now - start) / 900));
-        const eased = progress < 0.5 ? 4 * progress ** 3 : 1 - (-2 * progress + 2) ** 3 / 2;
-        paint(eased);
-        if (progress < 1) frame = requestAnimationFrame(tick);
-        else finish();
-      };
-      frame = requestAnimationFrame(tick);
-    };
-    const replay = instrument.querySelector('[data-replay]');
-    if (replay) listen(replay, 'click', play);
-    listen(motionPreference, 'change', () => { if (motionPreference.matches) finish(); });
-    if (motionPreference.matches) finish();
-    else if ('IntersectionObserver' in window) {
-      observer = new IntersectionObserver(entries => { if (entries.some(entry => entry.isIntersecting)) play(); }, { threshold: 0.15 });
-      observer.observe(instrument);
-    } else play();
-    cleanup.push(() => { observer?.disconnect(); cancelAnimationFrame(frame); });
-  });
-}
-
 function initBankDemo() {
   const root = document.querySelector('[data-bank-demo]');
   if (!root) return;
@@ -405,8 +282,88 @@ function initProcessDemo() {
   });
 }
 
+function initSceneAndMotion() {
+  const scene = document.querySelector('[data-context-scene]');
+  const toggle = document.querySelector('.motion-toggle');
+  const buttons = scene ? [...scene.querySelectorAll('[data-scene-step]')] : [];
+  const caption = scene?.querySelector('.scene-caption');
+  let userReduced = false;
+  try { userReduced = localStorage.getItem('portfolio-reduce-motion') === 'true'; } catch {}
+  let frame = 0;
+  let activeAnimation;
+  const reduced = () => motionPreference.matches || userReduced;
+  const draw = () => {
+    frame = 0;
+    if (!scene) return;
+    const top = scene.getBoundingClientRect().top;
+    const progress = Math.max(0, Math.min(1, (innerHeight * .45 - top) / (innerHeight * .75)));
+    const amount = reduced() ? 0 : innerWidth <= 620 ? 8 : 32;
+    scene.style.setProperty('--scene-y', `${(progress * amount).toFixed(2)}px`);
+    scene.style.setProperty('--scene-rotate', `${reduced() ? 0 : progress * 5}deg`);
+    scene.style.setProperty('--scene-shift', `${reduced() ? 0 : progress * 16}px`);
+  };
+  const schedule = () => { if (!frame) frame = requestAnimationFrame(draw); };
+  const preference = () => {
+    document.documentElement.dataset.reduceMotion = String(reduced());
+    if (toggle) {
+      toggle.setAttribute('aria-pressed', String(reduced()));
+      toggle.disabled = motionPreference.matches;
+      toggle.textContent = motionPreference.matches
+        ? words('Движение уменьшено системой', 'Motion reduced by system')
+        : reduced() ? words('Включить движение', 'Enable motion') : words('Уменьшить движение', 'Reduce motion');
+    }
+    if (reduced()) {
+      activeAnimation?.stop?.();
+      if (caption) caption.style.opacity = '1';
+    }
+    draw();
+  };
+  if (toggle) listen(toggle, 'click', () => {
+    if (motionPreference.matches) return;
+    userReduced = !userReduced;
+    try { localStorage.setItem('portfolio-reduce-motion', String(userReduced)); } catch {}
+    preference();
+  });
+  listen(motionPreference, 'change', preference);
+  if (scene) {
+    const captions = [
+      words('Выбран проект и конкретная рабочая сессия.', 'A project and a specific work session are selected.'),
+      words('Задача направлена в эту сессию. Здесь это иллюстрация, без реального запуска.', 'The task targets this session. This is an illustration, with no real command execution.'),
+      words('Вымышленный результат возвращается в тот же контекст.', 'A fictional result returns to the same context.'),
+    ];
+    const setStep = step => {
+      scene.dataset.sceneState = String(step);
+      buttons.forEach(button => button.setAttribute('aria-pressed', String(Number(button.dataset.sceneStep) === step)));
+      caption.textContent = captions[step];
+      activeAnimation?.stop?.();
+      caption.style.opacity = '1';
+      if (!reduced() && window.Motion?.animate) {
+        activeAnimation = window.Motion.animate(caption, { opacity: [.45, 1] }, { duration: .24 });
+      }
+    };
+    buttons.forEach((button, index) => {
+      listen(button, 'click', () => setStep(Number(button.dataset.sceneStep)));
+      listen(button, 'keydown', event => {
+        let next;
+        if (event.key === 'ArrowRight') next = (index + 1) % buttons.length;
+        else if (event.key === 'ArrowLeft') next = (index + buttons.length - 1) % buttons.length;
+        else if (event.key === 'Home') next = 0;
+        else if (event.key === 'End') next = buttons.length - 1;
+        else return;
+        event.preventDefault(); setStep(next); buttons[next].focus();
+      });
+    });
+    scene.dataset.sceneState = '0';
+    listen(window, 'scroll', schedule, { passive: true });
+    listen(window, 'resize', schedule, { passive: true });
+    listen(window, 'pageshow', schedule, { passive: true });
+  }
+  cleanup.push(() => { cancelAnimationFrame(frame); activeAnimation?.stop?.(); });
+  preference();
+}
+
 function start() {
-  [initMenu, initCopyEmail, initProgress, initEntranceMotion, initInstruments, initBankDemo, initCodyDemo, initProcessDemo].forEach(initialize => {
+  [initMenu, initCopyEmail, initProgress, initSceneAndMotion, initBankDemo, initCodyDemo, initProcessDemo].forEach(initialize => {
     try { initialize(); } catch (error) { console.warn('An optional portfolio interaction could not start.', error); }
   });
 }

@@ -1,0 +1,12 @@
+{
+  "frontend-design": {
+    "retrieved": "2026-11-06",
+    "sha256": "d91970639e9f5c37682ac7ab60094d35f1c7c1f38d731bd56396563aee10c1d3",
+    "source": "https://github.com/anthropics/skills/tree/main/skills/frontend-design"
+  },
+  "impeccable": {
+    "retrieved": "2026-11-06",
+    "sha256": "fab04b31f946573b00a8559db1fc070f8ea5825254d491c2b13156e5661a86d7",
+    "source": "https://github.com/pbakaus/impeccable/tree/main/.agents/skills/impeccable"
+  }
+}

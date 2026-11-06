@@ -1,20 +1,26 @@
-# Validation — 6 November 2026
+# Validation — redesign v2, 6 November 2026
 
-## What was checked
+## Checked on the final implementation
 
-- Generated all 15 HTML pages: a root entry, RU/EN home pages, six audience pages and six case pages.
-- Checked 312 local links/assets/anchors in the shipped HTML. No broken references.
-- JavaScript syntax checks passed for the main application and the process demo.
-- In-browser viewport checks across all 14 localized routes at 320 px found no document-level horizontal overflow. Home layouts were also inspected at 390 px, 1280 px and 1440 px. A long Russian heading was resized after the first mobile review.
-- Verified RU/EN navigation preserves the audience/case route, the learning CTA opens its projects section, mobile menu opens/closes and Escape dismisses it, and copying the contact succeeds.
-- Rule demo: selecting all participants updates both results; an invalid bonus of 15 is rejected and preserves the last valid result. Pure-rule checks also cover valid boundaries, invalid input and recovery.
-- CODY demo: project/session/task/result selection works; offline state does not report successful execution, and restoring the illustrative connection returns the scenario.
-- Process demo: missing responsibility blocks construction; an explicit choice builds a diagram and distinguishes source S1 from user clarification U1. Changing the choice invalidates the previous diagram. Mobile layout switches to a vertical process.
-- Browser error log was empty during the interaction checks.
-- Hosted version successfully deployed and was opened in the owner's authenticated Chrome session. Its access remains owner-private. GitHub source publication is separate and public.
+- Generated 15 static HTML pages. Checked 366 local links, assets and anchors: no broken references.
+- Python compilation and JavaScript module syntax checks passed.
+- Browser layout checks: RU home, EN home, all three RU audience pages and all three RU case pages at 320, 390, 768 and 1440 CSS pixels. The remaining six EN routes were checked at 320 px. No document-level horizontal overflow. A decorative orbit that initially caused mobile overflow was corrected.
+- Visual review of the desktop hero/projects, mobile hero/audience links, the rule demo and process demo. Saved desktop and full mobile screenshots.
+- Hero scene: choosing Result changes the caption, selected button and visible terminal output. Native scroll changes decorative plane positions; the visible reduced-motion control resets displacement to zero. The preference persists locally; system priority is implemented in source, but the OS setting itself was not changed for testing.
+- Mobile menu opens, Escape closes it and returns focus to the menu button. Locale switching preserves the case route. Copying the email reports success.
+- Rule demo: selecting all participants produces +5 for both. A bonus of 15 is rejected, retaining +5/+5 from the previous accepted rule.
+- CODY case: lost connection disables all four step buttons and shows Connection lost; restoring the illustrative connection permits the Result step again.
+- Process demo: unknown responsibility blocks construction. Choosing an owner builds a diagram and records clarification U1 separately from source S1. Changing the owner clears the built state. The vertical diagram is visible at 320 px without horizontal overflow.
+- Browser error/warning log was empty during the interaction checks.
+
+## Design review
+
+One Impeccable detector pass across seven RU pages reported 18 heuristic warnings: 1 contrast, 10 glow, 2 padding, 1 nested-container, 1 heading and 3 palette warnings. Repeated glow warnings include the same element classes on multiple pages. Final corrections brightened decorative window dots, removed glow on eyes/connector, added explicit inset and corrected heading hierarchy.
+
+The purple palette follows the user's explicit reference. Device/window nesting is intrinsic to the authored illustration, not a general page-card pattern. These were retained with an explicit rationale. The detector was not rerun as a score-chasing exercise; this is not a claim of zero remaining warnings. The corrected views were checked in the browser.
 
 ## Limits
 
-These checks validate the portfolio and its synthetic illustrations. They do not execute the actual CODY or BPMN.space products, audit the bank platform or prove business results. Reduced-motion and no-JavaScript fallback behavior were reviewed in source; no claim of a full accessibility audit or real-device performance benchmark is made. There are no invented Lighthouse scores or conversion numbers.
+This validates the portfolio and synthetic interactions, not the actual CODY connection, BPMN service or employer systems. No real-device performance benchmark, complete accessibility certification, user preference study, Lighthouse score or conversion claim is made. Content and normal links are server-rendered; JavaScript-off behaviour was reviewed in source rather than tested with a disabled browser runtime.
 
-Screenshots: [desktop](../previews/site-desktop.png), [mobile](../previews/site-mobile.png), [hosted site](../previews/site-live.png).
+Hosted access remains owner-private; the source/research repository is separately public. Publication status and source commit are recorded by the hosting service and Git history.

@@ -20,13 +20,13 @@ python3 -m http.server 8000 --directory site/dist
 
 Открыть `http://localhost:8000/ru/` или `/en/`. Затем доступны `engineering/`, `learning/`, `collaborate/` и `work/tbank/`, `work/cody/`, `work/bpmn/`. Для обновления текстов: `python3 site/build.py`.
 
-Внутри: правила экспериментов с проверкой ошибки, иллюстрация контекста CODY, построение процесса после уточнения, CV RU/EN, нативная прокрутка и поддержка reduced motion. [Проверки и ограничения](site/VALIDATION.md), [open-source компоненты и лицензии](site/CREDITS.md), [исследование анимации](research/site-motion-research.md).
+Внутри: правила экспериментов с проверкой ошибки, иллюстрация контекста CODY, построение процесса после уточнения, CV RU/EN, нативная прокрутка и поддержка reduced motion. [Проверки и ограничения](site/VALIDATION.md), [open-source компоненты и лицензии](site/CREDITS.md), [исследование нового дизайна](research/redesign-v2.md), [первое исследование анимации](research/site-motion-research.md).
 
 ## Начать здесь
 
 1. [Зачем сайт и для кого](research/audience-strategy.md) — три равноправные аудитории, четыре архитектуры, одна рекомендация.
 2. [Реальные результаты публичной работы](research/documented-outcomes.md) — Evans, Robinson, Simon и Harris; что доказано, а что нет.
-3. [Три визуальных направления](design/README.md) — живые HTML-пробы, скриншоты и принципы оформления.
+3. [Новый дизайн и исследование привлекательности](research/redesign-v2.md) — аудитории, источники, open-source инструменты и план проверки на людях. [Ранние визуальные пробы](design/README.md) сохранены как история поиска.
 4. [Кейсы RU](content/cases-ru.md) / [EN](content/cases-en.md) — T-Bank, CODY, BPMN.space.
 5. [Карьерные материалы и тексты](content/README.md), [CV RU](cv/Timofei_Iakovlev_CV_RU.pdf), [CV EN](cv/Timofei_Iakovlev_CV_EN.pdf).
 
@@ -36,7 +36,7 @@ python3 -m http.server 8000 --directory site/dist
 
 ![Маршруты трёх аудиторий](research/audience-map.svg)
 
-**В реализованном сайте принят каркас A / Инженерный атлас.** В кейсах — одна демонстрация из B. В учебной истории — открытые вопросы и личный голос из C. Не нужно три сайта и не нужно складывать все эффекты на главную.
+**Текущая версия — Connected Work.** После обратной связи владельца визуальный мир пересобран: тёмный непрерывный фон, Manrope, пространственная сцена CODY, имя и конкретная роль на первом экране. Три аудитории получили прямые входы возле знакомства. [Исследование редизайна](research/redesign-v2.md), [система оформления](site/DESIGN.md).
 
 Первоначальные пробы сохранены для сравнения с итоговым сайтом.
 
