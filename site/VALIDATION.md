@@ -24,3 +24,7 @@ The purple palette follows the user's explicit reference. Device/window nesting 
 This validates the portfolio and synthetic interactions, not the actual CODY connection, BPMN service or employer systems. No real-device performance benchmark, complete accessibility certification, user preference study, Lighthouse score or conversion claim is made. Content and normal links are server-rendered; JavaScript-off behaviour was reviewed in source rather than tested with a disabled browser runtime.
 
 Hosted access remains owner-private; the source/research repository is separately public. Publication status and source commit are recorded by the hosting service and Git history.
+
+## Publication
+
+Redesign deployed successfully on 6 November 2026. The hosted page was opened in the owner’s authenticated browser and its new design was visually verified. Site source commit: `ffb9808e15673a1fdf44772a52303c0235e79410`. Screenshots: [desktop](../previews/site-desktop.png), [mobile](../previews/site-mobile.png), [live](../previews/site-live.png).
