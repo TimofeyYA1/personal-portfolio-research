@@ -291,6 +291,8 @@ function initSceneAndMotion() {
   try { userReduced = localStorage.getItem('portfolio-reduce-motion') === 'true'; } catch {}
   let frame = 0;
   let activeAnimation;
+  const nameAnimations = new Map();
+  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
   const reduced = () => motionPreference.matches || userReduced;
   const draw = () => {
     frame = 0;
@@ -315,6 +317,8 @@ function initSceneAndMotion() {
     if (reduced()) {
       activeAnimation?.stop?.();
       if (caption) caption.style.opacity = '1';
+      nameAnimations.forEach(animation => animation.cancel());
+      nameAnimations.clear();
     }
     draw();
   };
@@ -325,6 +329,21 @@ function initSceneAndMotion() {
     preference();
   });
   listen(motionPreference, 'change', preference);
+  document.querySelectorAll('[data-name-letter]').forEach(letter => {
+    listen(letter, 'pointerenter', event => {
+      if (event.pointerType !== 'mouse' || !finePointer.matches || reduced()) return;
+      nameAnimations.get(letter)?.cancel();
+      const animation = letter.animate([
+        { transform: 'translateY(0) rotate(0) scale(1)' },
+        { transform: 'translateY(-9px) rotate(-3deg) scale(1.035)', offset: .3 },
+        { transform: 'translateY(3px) rotate(1.5deg) scale(.99)', offset: .6 },
+        { transform: 'translateY(-1px) rotate(-.5deg) scale(1)', offset: .8 },
+        { transform: 'translateY(0) rotate(0) scale(1)' },
+      ], { duration: 540, easing: 'cubic-bezier(.2,.75,.3,1)' });
+      nameAnimations.set(letter, animation);
+      animation.onfinish = () => { if (nameAnimations.get(letter) === animation) nameAnimations.delete(letter); };
+    });
+  });
   if (scene) {
     const captions = [
       words('Выбран проект и конкретная рабочая сессия.', 'A project and a specific work session are selected.'),
@@ -358,7 +377,11 @@ function initSceneAndMotion() {
     listen(window, 'resize', schedule, { passive: true });
     listen(window, 'pageshow', schedule, { passive: true });
   }
-  cleanup.push(() => { cancelAnimationFrame(frame); activeAnimation?.stop?.(); });
+  cleanup.push(() => {
+    cancelAnimationFrame(frame); activeAnimation?.stop?.();
+    nameAnimations.forEach(animation => animation.cancel());
+    nameAnimations.clear();
+  });
   preference();
 }
 

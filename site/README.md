@@ -1,6 +1,6 @@
 # Timofei Iakovlev — connected work
 
-Second visual direction, rebuilt after the owner rejected the first design. Dark, continuous canvas; self-hosted Manrope; a spatial CODY illustration; specific project evidence before long analysis. Russian and English, three audience routes, three case studies, two PDF CVs.
+Revision 3: a personal introduction with large reactive typography and visible GitHub, LinkedIn, resume and experience links. Dark continuous canvas, self-hosted Manrope and project-specific illustrations. CODY’s spatial scene now sits alongside its project; a dedicated experience/education section links to both PDF CVs. Russian and English, three audience routes, three case studies, two PDF CVs.
 
 ## Run
 
@@ -15,6 +15,7 @@ Open `/ru/` or `/en/`. Audience routes: `engineering/`, `learning/`, `collaborat
 
 ## Behaviour
 
+- Name: short pointer-triggered letter response, disabled with reduced motion.
 - CODY scene: context → task → fictional result. Native scroll moves only decorative planes, with smaller travel on mobile. No autoplay or scroll locking.
 - A visible motion preference persists locally. Operating-system reduced motion takes priority.
 - Bank example: changes are validated before applying; invalid inputs retain the last valid rule.

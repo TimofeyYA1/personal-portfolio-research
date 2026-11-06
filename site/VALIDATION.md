@@ -1,4 +1,18 @@
-# Validation — redesign v2, 6 November 2026
+# Validation — revision 3, 6 November 2026
+
+## Current revision
+
+- Generated 15 pages; checked 446 local links, anchors and CSS assets with no missing references. Python compilation and both JavaScript syntax checks passed.
+- Checked all 14 localized routes at 320 px: no document-level horizontal overflow; each has four professional destinations in its footer. RU/EN homes also checked at 768 and 1440 px; the RU home and project scene visually checked at 390 px.
+- On the 390 × 844 home, all four primary profile links are visible before scrolling (the strip ends at 731 px). Verified GitHub, LinkedIn, the locale-specific PDF URL and the Experience anchor. The Experience link reaches the new section. The Russian PDF was downloaded through its actual link.
+- Observed a name letter transform after pointer interaction. With reduced motion enabled, all name-letter transforms remain none; scene displacement resets to zero. The preference persists when navigating between languages. Restored normal motion after testing.
+- CODY Task selection separates the planes and highlights the terminal; ArrowRight selects Result, moves keyboard focus and reveals the fictional output. Measured movement is smaller on mobile. Reduced motion removes plane displacement while preserving state and captions.
+- Mobile menu opens with profile/resume destinations; Escape closes it and restores focus. Browser warning/error log was empty during this check.
+- Saved current desktop and mobile previews. No external profile edit, message or live device command was issued.
+
+The checks below record revision 2 and are retained as history; its unchanged case interactions were not all rerun in revision 3. The new revision was not subjected to another Impeccable detector pass.
+
+# Previous validation — redesign v2, 6 November 2026
 
 ## Checked on the final implementation
 
@@ -25,6 +39,6 @@ This validates the portfolio and synthetic interactions, not the actual CODY con
 
 Hosted access remains owner-private; the source/research repository is separately public. Publication status and source commit are recorded by the hosting service and Git history.
 
-## Publication
+## Publication of revision 3
 
-Redesign deployed successfully on 6 November 2026. The hosted page was opened in the owner’s authenticated browser and its new design was visually verified. Site source commit: `ffb9808e15673a1fdf44772a52303c0235e79410`. Screenshots: [desktop](../previews/site-desktop.png), [mobile](../previews/site-mobile.png), [live](../previews/site-live.png).
+The hosted owner-private Site was deployed successfully from source commit `6dcde09f670dbf6d956663377daa71932d6caaea` and opened in the owner’s authenticated Chrome session. The new name-led introduction, four profile destinations and experience section were present. The hosted screenshot is `../previews/site-live.png`; local desktop/mobile previews show the same revision. Public source and research publication is tracked separately by this GitHub repository.
