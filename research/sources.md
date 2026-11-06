@@ -302,3 +302,12 @@ CV, motivation letter, English certificate и школьные документ�
 
 **Что применить:** Переносить редакционный приём и демонстрацию способности, не копировать чужой бренд.
 
+
+## Дополнение: Jacek Jeznach — референс владельца
+
+Проверено 2026-11-06. [Полный разбор](jacek-jeznach-reference.md).
+
+- [Исходный адрес](https://jacekjeznach.com/) — при проверке в браузере показал рекламную страницу ParkLogic. Причина не устанавливалась.
+- [BeautifulPress](https://beautifulpress.net/website/jj-front-end-developer/) — сохранённый снимок дизайна и описание; не подтверждает актуальность интерактивного поведения.
+- [SitePoint, 21 апреля 2020; обновление 11 ноября 2024](https://www.sitepoint.com/5-features-to-make-your-web-developer-portfolio-stand-out/) — sponsored-разбор, упоминающий цвет и анимацию. Не эксперимент и не доказательство конверсии.
+- [CSS Winner](https://www.csswinner.com/details/jj-web-wordpress-developer/9243) — официальная карточка Nominee от 20 мая 2015, не подтверждение победы или коммерческого результата. Не приравнивать эту раннюю версию к более позднему снимку галереи.
